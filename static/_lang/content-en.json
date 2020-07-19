@@ -1,0 +1,33 @@
+{
+  "title": "Maya Shavin - Web Developer, Speaker, Blogger",
+  "navigation": {
+    "about": "About",
+    "projects": "Projects",
+    "speaker": "Speaking",
+    "articles": "Writing",
+    "resources": "Resources",
+    "contact": "Contact"
+  },
+  "homepage": {
+    "title": {
+      "speaker": "Speaker",
+      "web": "Web developer",
+      "organizer": "Organizer",
+      "bookworm": "Bookworm",
+      "blogger": "Blogger"
+    },
+    "greeting": "Hi, I'm Maya."
+  },
+  "footer": {
+    "disclaimer": "Designed & Developed by Maya Shavin",
+    "copyright": "Copyright © {date}"
+  },
+  "socials": {
+    "twitter": "Follow my Twitter",
+    "facebook": "Visit my Facebook page",
+    "linkedin": "Visit my LinkedIn Profile",
+    "github": "Visit my Github repos",
+    "youtube": "Subscribe to my Youtube Channel",
+    "medium": "Visit my Medium blog"
+  }
+}
