@@ -22,7 +22,7 @@
           width="48"
           crop="fill"
           quality="auto"
-          fetch-format="auto"
+          fetchFormat="auto"
           aria-hidden="true"
         />
       </nuxt-link>
@@ -75,7 +75,7 @@
               width="32"
               crop="fill"
               quality="auto"
-              fetch-format="auto"
+              fetchFormat="auto"
               aria-hidden="true"
             />
             <span class="ml-3">Home</span>

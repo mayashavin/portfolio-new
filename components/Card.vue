@@ -11,7 +11,7 @@
       width="320"
       height="160"
       quality="auto"
-      fetch-format="auto"
+      fetchFormat="auto"
     />
     <div class="mt-2">
       <div class="font-semibold capitalize text-2xl">

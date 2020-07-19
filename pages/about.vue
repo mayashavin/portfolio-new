@@ -35,7 +35,7 @@
         loading="lazy"
         width="32px"
         quality="auto"
-        fetch-format="auto"
+        fetchFormat="auto"
         class="m-2"
       />
     </div>

@@ -14,7 +14,7 @@
           type="fetch"
           width="280"
           quality="auto"
-          fetch-format="auto"
+          fetchFormat="auto"
           loading="lazy"
           aria-hidden="true"
         />

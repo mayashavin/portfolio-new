@@ -10,7 +10,7 @@
         width="150"
         height="150"
         quality="auto"
-        fetch-format="auto"
+        fetchFormat="auto"
         loading="lazy"
       /> -->
       <div
@@ -32,7 +32,7 @@
         height="32"
         crop="scale"
         quality="auto"
-        fetch-format="auto"
+        fetchFormat="auto"
         loading="lazy"
       />
     </div>
