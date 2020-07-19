@@ -67,7 +67,7 @@ export const iconWithColors = () => ({
       colors: [
         'text-mayas-hot-pink',
         'text-mayas-dark-80',
-        'text-mayas-sky-dark'
+        'text-mayas-sky-light'
       ]
     }
   },

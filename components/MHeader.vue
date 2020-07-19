@@ -40,7 +40,11 @@
       </nuxt-link>
     </nav>
     <div class="flex justify-end md:absolute top-0 right-0 m-5">
-      <button @click="toggleMenu" class="md:hidden mx-3">
+      <button
+        @click="toggleMenu"
+        class="md:hidden mx-3"
+        aria-label="Open navigation menu"
+      >
         <icon v-bind="menu" size="24px" />
       </button>
       <button
@@ -53,7 +57,7 @@
     <side-bar
       :class="sidebarClass"
       v-on:close="toggleMenu"
-      class="h-screen w-screen absolute top-0"
+      class="w-screen absolute top-0 h-screen"
     >
       <template>
         <div class="bg-mayas-light-default dark:bg-mayas py-5 px-3">
@@ -106,7 +110,7 @@
           </nuxt-link>
           <button
             @click="toggleMenu"
-            arial-label="Close"
+            aria-label="Close"
             class="absolute top-0 right-0 m-5"
           >
             <icon v-bind="close" size="24px" />

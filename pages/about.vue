@@ -1,10 +1,10 @@
 <template>
-  <section class="md:container mt-3 flex-col justify-center overflow-auto">
+  <section class="mt-3 flex-col justify-center overflow-auto md:w-9/12 mx-auto">
     <div class="flex justify-evenly items-center flex-col md:flex-row">
       <cld-image
         alt="Maya Shavin - Web developer, writer and speaker"
         loading="lazy"
-        public-id="mayashavin/Maya_2020.png"
+        public-id="mayashavin/Maya_2020"
         width="150"
         height="150"
         quality="auto"
@@ -14,18 +14,19 @@
         crop="fill"
         aria-hidden="true"
         class="mx-3"
+        fetchFormat="auto"
       />
 
       <div class="mx-5 md:mx-0 text-md md:text-xl md:w-8/12 text-left">
         <h2
-          class="text-3xl w-fit pr-4 pb-1 border-b mb-6 border-black dark:border-white"
+          class="text-2xl md:text-3xl w-fit pr-4 pb-1 border-b mb-6 border-black dark:border-white"
         >
           {{ page.title }}
         </h2>
         <nuxt-content :document="page" />
       </div>
     </div>
-    <div class="flex items-center m-3">
+    <div class="flex items-center m-3 justify-center">
       <cld-image
         v-for="(framework, key) in frameworks"
         :key="key"

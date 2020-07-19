@@ -15,7 +15,7 @@
         />
       </div>
     </div>
-    <div class="overflow-auto md:pr-8 w-screen">
+    <div class="overflow-auto md:pr-8 w-screen md:w-auto">
       <event
         v-for="(event, index) in events"
         :key="index"

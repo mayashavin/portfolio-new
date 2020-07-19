@@ -1,5 +1,5 @@
 <template>
-  <section class="flex mx-auto flex-col items-start h-0">
+  <section class="flex mx-auto flex-col items-start h-0 md:w-9/12">
     <div
       class="my-5 flex items-center text-sm self-center md:self-start md:ml-2"
     >

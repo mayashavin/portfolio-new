@@ -8,7 +8,7 @@
         :aria-label="$t(`socials.${key}`)"
         target="_blank"
         rel="noopener noreferrer"
-        class="m-2"
+        class="m-3 md:m-2"
       >
         <icon v-bind="icons[key]" size="24px" />
       </a>

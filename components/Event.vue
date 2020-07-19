@@ -17,7 +17,7 @@
         class="flex items-center flex-col bg-mayas-light-20 dark:bg-mayas px-5 h-fit z-10"
       >
         <span
-          class="text-mayas-sky-light dark:text-mayas-sky-dark text-4xl font-extrabold leading-none mt-2 mb-1"
+          class="text-mayas-sky-light dark:text-mayas-sky-light text-4xl font-extrabold leading-none mt-2 mb-1"
           >{{ event.time.date }}</span
         >
         <span class="uppercase text-xl">{{ event.time.month }}</span>

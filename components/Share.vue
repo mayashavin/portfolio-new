@@ -2,7 +2,7 @@
   <div class="flex flex-wrap">
     <a
       :href="tweetFormatLink"
-      :arial-label="`Tweet about ${title}`"
+      :aria-label="`Tweet about ${title}`"
       class="share-button mr2 flex items-center justify-center mx-1"
       target="_blank"
       data-size="large"
@@ -12,7 +12,7 @@
     </a>
     <a
       :href="linkedInShareLink"
-      :arial-label="`Share ${title} on LinkedIn`"
+      :aria-label="`Share ${title} on LinkedIn`"
       class="mr2 share-button flex items-center justify-center mx-1"
       target="_blank"
       rel=" noopener noreferrer"
@@ -21,7 +21,7 @@
     </a>
     <a
       :href="facebookShare"
-      :arial-label="`Share ${title} on Facebook`"
+      :aria-label="`Share ${title} on Facebook`"
       target="_blank"
       rel=" noopener noreferrer"
       class="mr2 share-button flex items-center justify-center mx-1"

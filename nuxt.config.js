@@ -149,7 +149,7 @@ export default {
         target: '_blank',
         rel: 'noopener noreferrer'
       },
-      remarkPlugins: ['remark-emoji'],
+      // remarkPlugins: ['remark-emoji'],
       prism: {
         theme: 'prism-themes/themes/prism-a11y-dark.css'
       }
@@ -161,11 +161,15 @@ export default {
         const { text } = require('reading-time')(document.text)
 
         document.readingTime = text
-
-        const time = formatTime(document.createdAt || document.updatedAt)
-
-        document.publishedTime = `${time.month} ${time.day}, ${time.year}`
       }
+
+      const time = formatTime(
+        document.publishedAt
+          ? new Date(document.publishedAt)
+          : document.createdAt || document.updatedAt
+      )
+
+      document.publishedTime = `${time.month} ${time.day}, ${time.year}`
     }
   }
 }
