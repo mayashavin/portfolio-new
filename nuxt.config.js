@@ -141,7 +141,7 @@ export default {
       'https://res.cloudinary.com/mayashavin/image/upload/v1539936657/mayashavin/rainbow.png'
   },
   content: {
-    dir: 'assets/content',
+    dir: 'content',
     // Only search in title and description
     fullTextSearchFields: ['title', 'description'],
     markdown: {
