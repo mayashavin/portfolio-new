@@ -10,7 +10,7 @@
           :key="tag.title"
           :text="tag.title"
           :class="tagClass(tag.active)"
-          class="text-sm px-3 border-mayas-green-dark mx-1"
+          class="text-sm px-3 border-mayas-green-dark mx-1 mb-2"
           clickable
         />
       </div>

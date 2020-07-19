@@ -14,6 +14,7 @@
               :alt="host.title"
               type="fetch"
               loading="lazy"
+              crop="scale"
               width="40"
               height="40"
               quality="auto"
