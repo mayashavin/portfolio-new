@@ -22,7 +22,9 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Pull submodules
-      run: git submodule foreach git pull origin master
+      uses: srt32/git-actions@v0.0.3
+      with:
+        args: git submodule update --init --recursive
 
     - name: Install dependencies
       run: yarn
