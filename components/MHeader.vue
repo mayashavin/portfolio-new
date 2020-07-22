@@ -1,43 +1,77 @@
 <template>
   <header class="uppercase">
-    <nav class="hidden justify-center my-3 text-xl md:flex">
-      <nuxt-link
-        to="/about"
-        class="mx-2 p-1 border-b flex items-center border-black dark:border-white"
+    <nav
+      :class="sidebarClass"
+      class="w-screen absolute top-0 h-screen md:h-auto md:relative justify-center md:my-3 md:text-xl flex-col z-20 md:flex"
+    >
+      <div
+        class="bg-mayas-light-default md:flex-row dark:bg-mayas py-5 px-3 md:p-0 flex flex-col justify-center md:bg-transparent md:dark:bg-transparent"
       >
-        {{ $t('navigation.about') }}
-      </nuxt-link>
-      <nuxt-link
-        to="/speaker"
-        class="mx-2 p-2 border-b flex items-center border-black dark:border-white"
-      >
-        {{ $t('navigation.speaker') }}
-      </nuxt-link>
-      <nuxt-link to="/" class="mx-3" aria-label="Click to go back to homepage">
-        <cld-image
-          :transformation="effects"
-          alt="Maya Shavin - Logo"
-          loading="lazy"
-          public-id="mayashavin/white-logo"
-          width="48"
-          crop="fill"
-          quality="auto"
-          fetchFormat="auto"
-          aria-hidden="true"
-        />
-      </nuxt-link>
-      <nuxt-link
-        to="/articles"
-        class="mx-2 p-2 border-b flex items-center border-black dark:border-white"
-      >
-        {{ $t('navigation.articles') }}
-      </nuxt-link>
-      <nuxt-link
-        to="/resources"
-        class="mx-2 p-2 border-b flex items-center border-black dark:border-white"
-      >
-        {{ $t('navigation.resources') }}
-      </nuxt-link>
+        <nuxt-link
+          :class="highlightTab('about')"
+          @click.native="toggleMenu"
+          to="/about"
+          class="mx-2 p-1 my-2 md:my-0 md:border-b flex items-center border-black dark:border-white"
+        >
+          {{ $t('navigation.about') }}
+        </nuxt-link>
+        <nuxt-link
+          :class="highlightTab('speaker')"
+          @click.native="toggleMenu"
+          to="/speaker"
+          class="mx-2 p-2 my-2 md:my-0 md:border-b flex items-center border-black dark:border-white"
+        >
+          {{ $t('navigation.speaker') }}
+        </nuxt-link>
+        <nuxt-link
+          :class="highlightTab('home')"
+          @click.native="toggleMenu"
+          to="/"
+          class="order-first md:order-none flex items-center my-2 mx-3 md:my-0"
+          aria-label="Click to go back to homepage"
+        >
+          <cld-image
+            :transformation="effects"
+            alt="Maya Shavin - Logo"
+            loading="lazy"
+            public-id="mayashavin/white-logo"
+            width="48"
+            crop="fill"
+            quality="auto"
+            fetchFormat="auto"
+            aria-hidden="true"
+            class="w-8 md:w-auto"
+          />
+          <span class="ml-3 md:hidden">Home</span>
+        </nuxt-link>
+        <nuxt-link
+          :class="highlightTab('articles')"
+          @click.native="toggleMenu"
+          to="/articles"
+          class="mx-2 my-2 md:my-0 p-2 md:border-b flex items-center border-black dark:border-white"
+        >
+          {{ $t('navigation.articles') }}
+        </nuxt-link>
+        <nuxt-link
+          :class="highlightTab('resources')"
+          @click.native="toggleMenu"
+          to="/resources"
+          class="mx-2 my-2 md:my-0 p-2 md:border-b flex items-center border-black dark:border-white"
+        >
+          {{ $t('navigation.resources') }}
+        </nuxt-link>
+        <button
+          @click="toggleMenu"
+          aria-label="Close"
+          class="absolute top-0 right-0 m-5 md:hidden"
+        >
+          <icon v-bind="close" size="24px" />
+        </button>
+      </div>
+      <div
+        @click="toggleMenu"
+        class="bg-gray-800 opacity-75 flex-1 md:hidden"
+      />
     </nav>
     <div class="flex justify-end md:absolute top-0 right-0 m-5">
       <button
@@ -54,70 +88,6 @@
         <icon v-bind="mode.icon" size="24px" />
       </button>
     </div>
-    <side-bar
-      :class="sidebarClass"
-      v-on:close="toggleMenu"
-      class="w-screen absolute top-0 h-screen"
-    >
-      <template>
-        <div class="bg-mayas-light-default dark:bg-mayas py-5 px-3">
-          <nuxt-link
-            @click.native="toggleMenu"
-            to="/"
-            class="mx-3 flex items-center my-2"
-            aria-label="Click to go back to homepage"
-          >
-            <cld-image
-              :transformation="effects"
-              alt="Maya Shavin - Logo"
-              loading="lazy"
-              public-id="mayashavin/white-logo"
-              width="32"
-              crop="fill"
-              quality="auto"
-              fetchFormat="auto"
-              aria-hidden="true"
-            />
-            <span class="ml-3">Home</span>
-          </nuxt-link>
-          <nuxt-link
-            @click.native="toggleMenu"
-            to="/about"
-            class="mx-2 p-1 my-2 underline flex items-center border-black dark:border-white"
-          >
-            {{ $t('navigation.about') }}
-          </nuxt-link>
-          <nuxt-link
-            @click.native="toggleMenu"
-            to="/speaker"
-            class="mx-2 p-2 my-2 flex items-center border-black dark:border-white"
-          >
-            {{ $t('navigation.speaker') }}
-          </nuxt-link>
-          <nuxt-link
-            @click.native="toggleMenu"
-            to="/articles"
-            class="mx-2 p-2 my-2 flex items-center border-black dark:border-white"
-          >
-            {{ $t('navigation.articles') }}
-          </nuxt-link>
-          <nuxt-link
-            @click.native="toggleMenu"
-            to="/resources"
-            class="mx-2 p-2 my-2 flex items-center border-black dark:border-white"
-          >
-            {{ $t('navigation.resources') }}
-          </nuxt-link>
-          <button
-            @click="toggleMenu"
-            aria-label="Close"
-            class="absolute top-0 right-0 m-5"
-          >
-            <icon v-bind="close" size="24px" />
-          </button>
-        </div>
-      </template>
-    </side-bar>
   </header>
 </template>
 <script>
@@ -163,6 +133,9 @@ export default {
         hidden: !this.menuActive,
         flex: this.menuActive
       }
+    },
+    selectedTab() {
+      return this.$store.getters.tab.split('-')[0]
     }
   },
   methods: {
@@ -177,6 +150,11 @@ export default {
     },
     toggleMenu() {
       this.menuActive = !this.menuActive
+    },
+    highlightTab(tab) {
+      return {
+        'font-bold': this.selectedTab === tab
+      }
     }
   }
 }

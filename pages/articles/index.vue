@@ -1,7 +1,7 @@
 <template>
   <section class="flex mx-auto flex-col items-start h-0 md:w-9/12">
     <div
-      class="my-5 flex items-center text-sm self-center md:self-start md:ml-2"
+      class="mt-3 md:mt-5 mb-3 flex items-center text-sm self-center md:self-start md:ml-2"
     >
       <h4>Sort by</h4>
       <div class="ml-3">
@@ -18,12 +18,14 @@
     <div
       class="overflow-auto md:pr-8 flex justify-center md:justify-start flex-wrap"
     >
-      <card
+      <nuxt-link
         v-for="post in posts"
         :key="post.slug"
-        :post="post"
-        class="mx-2 mb-3"
-      />
+        :to="`/articles/${post.slug}`"
+        class="mx-2 my-3"
+      >
+        <card :post="post" />
+      </nuxt-link>
     </div>
   </section>
 </template>
@@ -58,8 +60,12 @@ export default {
         'publishedTime',
         'readingTime'
       ])
+      .where({
+        extension: '.md'
+      })
       .sortBy('createdAt', 'desc')
       .fetch()
+
     return { posts }
   },
   methods: {

@@ -25,12 +25,9 @@
         <span>{{ post.readingTime }}</span>
       </div>
     </div>
-    <nuxt-link
-      :to="`/articles/${post.slug}`"
-      class="text-mayas-hot-pink underline"
-    >
+    <p class="text-mayas-hot-pink underline">
       Continue reading
-    </nuxt-link>
+    </p>
   </div>
 </template>
 <script>

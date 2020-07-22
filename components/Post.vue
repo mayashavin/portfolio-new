@@ -1,5 +1,5 @@
 <template>
-  <article class="overflow-auto px-2 md:px-20 text-lg">
+  <article class="overflow-auto px-2 md:px-20 text-lg w-full">
     <div class="my-4">
       <chip
         v-for="tag in post.tags"
@@ -64,5 +64,10 @@ export default {
 
 .nuxt-content hr {
   @apply w-32 mx-auto;
+  border-top-style: groove;
+}
+
+.nuxt-content blockquote {
+  @apply border-l-2 pl-3 pt-1;
 }
 </style>

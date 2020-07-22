@@ -16,11 +16,11 @@
       "bookworm": "Bookworm",
       "blogger": "Blogger"
     },
-    "greeting": "Hi, I'm Maya."
+    "greeting": "Hi, my name is Maya."
   },
   "footer": {
     "disclaimer": "Designed & Developed by Maya Shavin",
-    "copyright": "Copyright © {date}"
+    "copyright": "© {date}"
   },
   "socials": {
     "twitter": "Follow my Twitter",
@@ -29,5 +29,15 @@
     "github": "Visit my Github repos",
     "youtube": "Subscribe to my Youtube Channel",
     "medium": "Visit my Medium blog"
+  },
+  "error": {
+    "codes": {
+      "404": "Uh oh, you got the wrong link 😿",
+      "default": "Something is wrong 😢."
+    },
+    "message": "Try the options in the nav bar or",
+    "actions": {
+      "home": "Take me to home page"
+    }
   }
 }

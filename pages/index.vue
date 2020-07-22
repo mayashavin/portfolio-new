@@ -1,6 +1,8 @@
 <template>
   <section class="container justify-evenly flex-col md:flex-row">
-    <div class="self-start ml-5 md:self-center md:ml-0">
+    <div
+      class="self-start ml-5 md:self-center md:ml-0 flex flex-col md:items-center"
+    >
       <cld-image
         alt="Maya Shavin - Web developer, writer and speaker"
         loading="lazy"
@@ -15,7 +17,9 @@
         aria-hidden="true"
         class="mx-3"
       />
-      <h2 class="text-2xl md:text-3xl my-3">{{ $t('homepage.greeting') }}</h2>
+      <h2 class="text-2xl md:text-3xl my-3">
+        {{ $t('homepage.greeting') }}
+      </h2>
     </div>
     <div
       class="flex flex-col items-end text-3xl self-end mr-8 md:text-5xl md:self-center md:mr-0"

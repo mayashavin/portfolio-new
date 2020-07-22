@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex flex-col bg-mayash-main-light">
+  <div class="h-full flex flex-col bg-mayash-main-light">
     <m-header />
     <nuxt class="flex-1" />
     <m-footer />
@@ -47,6 +47,7 @@ html {
 body {
   background: var(--page-background);
   overflow: hidden;
+  height: 100%;
   /* background-image: url('https://res.cloudinary.com/mayashavin/image/upload/w_500/v1594814559/mayashavin/white-logo.png');
   background-position: right bottom;
   background-repeat: no-repeat; */
@@ -61,6 +62,11 @@ body {
 /* Sample `apply` at-rules with Tailwind CSS */
 .container {
   @apply flex items-center text-center mx-auto;
+}
+
+#__layout,
+#__nuxt {
+  @apply h-full;
 }
 </style>
 <style>

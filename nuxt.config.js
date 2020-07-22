@@ -5,6 +5,9 @@ export default {
   mode: 'universal',
   target: 'static',
   components: true,
+  router: {
+    middleware: 'tab'
+  },
   /*
    ** Headers of the page
    */
@@ -35,7 +38,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/feed'
   ],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
@@ -171,5 +175,41 @@ export default {
 
       document.publishedTime = `${time.month} ${time.day}, ${time.year}`
     }
+  },
+  feed: async () => {
+    const { $content } = require('@nuxt/content')
+    const { tags } = await $content('posts/tags').fetch()
+    const posts = await $content('posts', { deep: true, text: true })
+      .where({
+        extension: '.md'
+      })
+      .fetch()
+
+    return tags.map(tag => {
+      const relevantPosts = posts.filter(post => post.tags.includes(tag))
+
+      return {
+        path: `/${tag}.xml`,
+        create(feed) {
+          feed.options = {
+            title: `Category: ${tag} - Maya's Blog`,
+            link: `https://mayashavin.com/${tag}.xml`,
+            description: `All post related to ${tag} of my blog`
+          }
+
+          relevantPosts.forEach(post => {
+            feed.addItem({
+              title: post.title,
+              id: post.slug,
+              link: `https://mayashavin.com/articles/${post.slug}`,
+              description: post.description,
+              content: post.text
+            })
+          })
+        },
+        cacheTime: 1000 * 60 * 15,
+        type: 'rss2'
+      }
+    })
   }
 }
