@@ -1,2 +1,0 @@
-- name: Merge Schedule
-  uses: gr2m/merge-schedule-action@v1.0.2
