@@ -18,19 +18,27 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - name: Pull submodules
+    - name: Update submodules
       uses: actions/checkout@v2
       with:
         token: ${{ secrets.PAT_REPO_HOOK_TOKEN }}
         submodules: recursive      
-    - run: |
+    
+    - name: Pull content
+      run: |
         git submodule foreach git pull origin master --allow-unrelated-histories
-    - run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add .
-        git commit -m "update submodule"
-        git push 
+    
+    - name: Update submodule index
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        # Required
+        commit_message: Update submodule        
+
+        # Optional commit user and author settings
+        commit_user_name: My GitHub Actions Bot
+        commit_user_email: dpnminh@gmail.com # to change
+        commit_author: My GitHub Actions Bot <actions@github.com>
+    
     - name: Install dependencies
       run: yarn
     
