@@ -70,3 +70,10 @@ jobs:
         vercel-args: '--prod' #Optional
         vercel-org-id: ${{ secrets.ZEIT_ORG_ID}}  #Required
         vercel-project-id: ${{ secrets.ZEIT_PROJECT_ID}} #Required 
+    - uses: ethomson/send-tweet-action@v1
+      with:
+        status: "🚀 ${{ steps.log.output.message }}"
+        consumer-key: ${{ secrets.TWITTER_API_KEY }}
+        consumer-secret: ${{ secrets.TWITTER_API__SECRET_KEY }}
+        access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+        access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
