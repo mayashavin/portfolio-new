@@ -26,6 +26,8 @@ jobs:
     
     - name: Pull content
       run: |
+        git config --global user.email "dpnminh@gmail.com"
+        git config --global user.name "My GitHub Actions Bot"
         git submodule foreach git pull origin master --allow-unrelated-histories
     
     - name: Update submodule index
