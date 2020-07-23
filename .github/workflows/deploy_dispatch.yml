@@ -23,7 +23,7 @@ jobs:
         git config --global user.email "dpnminh@gmail.com"
         git config --global user.name "My GitHub Actions Bot"
         git clean -n
-        git add {submodule path}
+        git add .
         git commit -m "Update submodule ref"
         
     - name: Update submodules path
