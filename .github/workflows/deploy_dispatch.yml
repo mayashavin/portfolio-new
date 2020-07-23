@@ -24,7 +24,7 @@ jobs:
         token: ${{ secrets.PAT_REPO_HOOK_TOKEN }}
         submodules: recursive      
     - run: |
-        git submodule foreach git pull origin master
+        git submodule foreach git pull origin master --allow-unrelated-histories
     - run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
