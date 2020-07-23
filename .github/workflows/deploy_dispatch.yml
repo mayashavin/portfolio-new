@@ -72,7 +72,7 @@ jobs:
         vercel-project-id: ${{ secrets.ZEIT_PROJECT_ID}} #Required 
     - uses: ethomson/send-tweet-action@v1
       with:
-        status: "🚀 ${{ steps.log.output.message }}"
+        status: "🚀 ${{ github.event.client_payload.message }}"
         consumer-key: ${{ secrets.TWITTER_API_KEY }}
         consumer-secret: ${{ secrets.TWITTER_API__SECRET_KEY }}
         access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
