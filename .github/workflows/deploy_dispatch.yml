@@ -30,4 +30,4 @@ jobs:
       run: yarn build
     
     - name: Deploy
-      run: now _build/ --prod --token ${{ secrets.PAT_ZEIT_DEPLOY }}
+      run: now --prod --token ${{ secrets.PAT_ZEIT_DEPLOY }}
