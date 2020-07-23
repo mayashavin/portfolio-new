@@ -18,16 +18,22 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    # - name: Update submodules
-    #  uses: actions/checkout@v2
-    #  with:
-    #    token: ${{ secrets.PAT_REPO_HOOK_TOKEN }}
-    #    submodules: recursive      
-    
-    - name: Pull content
+    - name: Update submodules ref
       run: |
         git config --global user.email "dpnminh@gmail.com"
         git config --global user.name "My GitHub Actions Bot"
+        git clean -n
+        git add {submodule path}
+        git commit -m "Update submodule ref"
+        
+    - name: Update submodules path
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.PAT_REPO_HOOK_TOKEN }}
+        submodules: recursive      
+
+    - name: Pull content
+      run: |
         git submodule foreach git pull origin master --allow-unrelated-histories
     
     - name: Update submodule index
