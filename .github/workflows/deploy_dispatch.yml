@@ -19,16 +19,22 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - name: Update submodules ref
-      run: |
-        git config --global user.email "dpnminh@gmail.com"
-        git config --global user.name "My GitHub Actions Bot"
-        git submodule foreach git pull origin master --allow-unrelated-histories
+   # - name: Update submodules ref
+   #   run: |
+     #   git config --global user.email "dpnminh@gmail.com"
+      #  git config --global user.name "My GitHub Actions Bot"
+      #  git submodule update --remote --recursive
+      # git submodule foreach git pull origin master --allow-unrelated-histories
+    - name: Update submodules path
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.PAT_REPO_HOOK_TOKEN }}
+        submodules: remote          
         
    
-    - name: Pull content
-      run: |        
-        git clean -n
+    #- name: Pull content
+    #  run: |        
+    #    git clean -n
      # git add .
     
 
@@ -42,11 +48,11 @@ jobs:
         commit_user_name: My GitHub Actions Bot
         commit_user_email: dpnminh@gmail.com # to change
         commit_author: My GitHub Actions Bot <actions@github.com>
-    - name: Update submodules path
-      uses: actions/checkout@v2
-      with:
-        token: ${{ secrets.PAT_REPO_HOOK_TOKEN }}
-        submodules: recursive      
+    # - name: Update submodules path
+    #  uses: actions/checkout@v2
+    #  with:
+    #    token: ${{ secrets.PAT_REPO_HOOK_TOKEN }}
+    #    submodules: recursive      
     - name: Install dependencies
       run: yarn
     
