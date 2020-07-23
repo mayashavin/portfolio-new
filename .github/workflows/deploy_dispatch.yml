@@ -30,4 +30,9 @@ jobs:
       run: yarn build
     
     - name: Deploy
-      run: now --prod --token ${{ secrets.PAT_ZEIT_DEPLOY }}
+      uses: amondnet/vercel-action@v19
+      with:
+        vercel-token: ${{ secrets.PAT_ZEIT_DEPLOY }} # Required
+        vercel-args: '--prod' #Optional
+        vercel-org-id: ${{ secrets.ZEIT_ORG_ID}}  #Required
+        vercel-project-id: ${{ secrets.ZEIT_PROJECT_ID}} #Required 
