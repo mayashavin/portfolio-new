@@ -24,25 +24,12 @@ jobs:
       with:
         token: ${{ secrets.PAT_REPO_HOOK_TOKEN }}
         submodules: true
-    - name: Update submodules
+    
+    - name: Update submodules content
       run: |
-        git submodule update --remote --recursive         
-   # - name: Update submodules ref
-   #   run: |
-     #   git config --global user.email "dpnminh@gmail.com"
-      #  git config --global user.name "My GitHub Actions Bot"
-      #  git submodule update --remote --recursive
-      # git submodule foreach git pull origin master --allow-unrelated-histories
+        git submodule update --remote --recursive  
     
-        
-   
-    #- name: Pull content
-    #  run: |        
-    #    git clean -n
-     # git add .
-    
-
-    - name: Update submodule index
+    - name: Update submodules index
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         # Required
@@ -52,10 +39,6 @@ jobs:
         commit_user_name: My GitHub Actions Bot
         commit_user_email: dpnminh@gmail.com # to change
         commit_author: My GitHub Actions Bot <actions@github.com>
-    # - name: Update submodules path
-    #  uses: actions/checkout@v2
-    #  with:
-    #    token: ${{ secrets.PAT_REPO_HOOK_TOKEN }}
     #    submodules: recursive      
     - name: Install dependencies
       run: yarn
@@ -63,14 +46,16 @@ jobs:
     - name: Build
       run: yarn build
     
-    - name: Deploy
+    - name: Deploy to Vercel
       uses: amondnet/vercel-action@v19.0.1+1
       with:
         vercel-token: ${{ secrets.PAT_ZEIT_DEPLOY }} # Required
         vercel-args: '--prod' #Optional
         vercel-org-id: ${{ secrets.ZEIT_ORG_ID}}  #Required
         vercel-project-id: ${{ secrets.ZEIT_PROJECT_ID}} #Required 
-    - uses: ethomson/send-tweet-action@v1
+    
+    - name: Tweet about it
+      uses: ethomson/send-tweet-action@v1
       with:
         status: "🚀 ${{ github.event.client_payload.message }}"
         consumer-key: ${{ secrets.TWITTER_API_KEY }}
