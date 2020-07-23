@@ -23,19 +23,15 @@ jobs:
       run: |
         git config --global user.email "dpnminh@gmail.com"
         git config --global user.name "My GitHub Actions Bot"
-        git clean -n
-        git add .
-        
-    - name: Update submodules path
-      uses: actions/checkout@v2
-      with:
-        token: ${{ secrets.PAT_REPO_HOOK_TOKEN }}
-        submodules: recursive      
-
-    - name: Pull content
-      run: |
         git submodule foreach git pull origin master --allow-unrelated-histories
+        
+   
+    - name: Pull content
+      run: |        
+        git clean -n
+     # git add .
     
+
     - name: Update submodule index
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
@@ -46,7 +42,11 @@ jobs:
         commit_user_name: My GitHub Actions Bot
         commit_user_email: dpnminh@gmail.com # to change
         commit_author: My GitHub Actions Bot <actions@github.com>
-    
+    - name: Update submodules path
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.PAT_REPO_HOOK_TOKEN }}
+        submodules: recursive      
     - name: Install dependencies
       run: yarn
     
