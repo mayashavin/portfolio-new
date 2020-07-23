@@ -26,8 +26,7 @@ jobs:
         submodules: true
     - name: Update submodules
       run: |
-        git submodule update --remote --recursive       
-        git submodule foreach git pull origin master --allow-unrelated-histories   
+        git submodule update --remote --recursive         
    # - name: Update submodules ref
    #   run: |
      #   git config --global user.email "dpnminh@gmail.com"
