@@ -1,5 +1,4 @@
 import Event from '../components/Event.vue'
-import '../plugins/cloudinary'
 
 export default {
   title: 'Event'

@@ -19,7 +19,7 @@
           :class="highlightTab('speaker')"
           @click.native="toggleMenu"
           to="/speaker"
-          class="mx-2 p-2 my-2 md:my-0 md:border-b flex items-center border-black dark:border-white"
+          class="mx-2 p-1 my-2 md:my-0 md:border-b flex items-center border-black dark:border-white"
         >
           {{ $t('navigation.speaker') }}
         </nuxt-link>
@@ -40,7 +40,7 @@
             quality="auto"
             fetchFormat="auto"
             aria-hidden="true"
-            class="w-8 md:w-auto"
+            class="w-8 md:w-auto lazyload"
           />
           <span class="ml-3 md:hidden">Home</span>
         </nuxt-link>
@@ -48,7 +48,7 @@
           :class="highlightTab('articles')"
           @click.native="toggleMenu"
           to="/articles"
-          class="mx-2 my-2 md:my-0 p-2 md:border-b flex items-center border-black dark:border-white"
+          class="mx-2 my-2 md:my-0 p-1 md:border-b flex items-center border-black dark:border-white"
         >
           {{ $t('navigation.articles') }}
         </nuxt-link>

@@ -1,8 +1,5 @@
 <template>
   <div class="card w-320">
-    <div>
-      <chip v-for="tag in post.tags" :key="tag" :text="tag" />
-    </div>
     <cld-image
       :public-id="post.img"
       :alt="post.title"

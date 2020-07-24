@@ -1,6 +1,10 @@
 <template>
   <!--eslint-disable-next-line vue/require-component-is-->
-  <component :is="container" class="w-fit h-fit px-2 py-1 border rounded-full">
+  <component
+    :is="container"
+    @click="onClick"
+    class="w-fit h-fit px-2 py-1 border rounded-full"
+  >
     <span>{{ text }}</span>
   </component>
 </template>
@@ -35,7 +39,10 @@ export default {
   },
   methods: {
     onClick() {
-      return this.clickable && this.$emit('chip-clicked', this.text)
+      return (
+        this.clickable &&
+        this.$emit('chip-clicked', this.active ? '' : this.text)
+      )
     }
   }
 }

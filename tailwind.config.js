@@ -52,7 +52,8 @@ module.exports = {
       },
       height: {
         fit: 'fit-content',
-        '150': '150px'
+        '150': '150px',
+        '300': '300px'
       },
       width: {
         fit: 'fit-content',

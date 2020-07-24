@@ -33,7 +33,7 @@ export default {
    */
   loading: { color: '#fff' },
   css: ['~/assets/css/tailwind.css', '~/assets/css/button.css'],
-  plugins: ['~/plugins/i18n', '~/plugins/cloudinary'],
+  plugins: ['~/plugins/i18n', '~/plugins/cloudinary', '~/plugins/lazysizes'],
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
@@ -167,13 +167,28 @@ export default {
         document.readingTime = text
       }
 
-      const time = formatTime(
-        document.publishedAt
-          ? new Date(document.publishedAt)
-          : document.createdAt || document.updatedAt
-      )
+      if (document.slug === 'events') {
+        const events = document.events
 
-      document.publishedTime = `${time.month} ${time.day}, ${time.year}`
+        document.events = events.map(event => {
+          const date = formatTime(new Date(event.organizer.date))
+
+          return {
+            organizer: { ...event.organizer, time: date },
+            talk: event.talk
+          }
+        })
+      }
+
+      if (['.md', '.yaml'].includes(document.extension)) {
+        const time = formatTime(
+          document.publishedAt
+            ? new Date(document.publishedAt)
+            : document.createdAt || document.updatedAt
+        )
+
+        document.publishedTime = `${time.month} ${time.day}, ${time.year}`
+      }
     }
   },
   feed: async () => {

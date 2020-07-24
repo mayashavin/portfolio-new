@@ -1,24 +1,16 @@
 <template>
-  <article class="flex justify-start">
+  <article
+    class="flex items-center md:items-start md:justify-start flex-col md:flex-row "
+  >
     <div
       class="relative flex justify-center w-150 h-150 bg-mayas-light-80 dark:bg-mayas-dark-40"
     >
-      <!-- <cld-image
-        :public-id="event.logo"
-        :alt="event.title"
-        class="absolute w-100 o-70 flex"
-        width="150"
-        height="150"
-        quality="auto"
-        fetchFormat="auto"
-        loading="lazy"
-      /> -->
       <div
         class="flex items-center flex-col bg-mayas-light-20 dark:bg-mayas px-5 h-fit z-10"
       >
         <span
           class="text-mayas-sky-light dark:text-mayas-sky-light text-4xl font-extrabold leading-none mt-2 mb-1"
-          >{{ event.time.date }}</span
+          >{{ event.time.day }}</span
         >
         <span class="uppercase text-xl">{{ event.time.month }}</span>
         <span class="mb-1">{{ event.time.year }}</span>
@@ -28,7 +20,6 @@
         :alt="`${talk.title}`"
         aria-hidden="true"
         class="absolute bottom-0 right-0 m-2"
-        width="32"
         height="32"
         crop="scale"
         quality="auto"
@@ -36,7 +27,7 @@
         loading="lazy"
       />
     </div>
-    <div class="px-3 flex flex-col justify-between text-sm">
+    <div class="px-3 flex flex-col justify-between text-sm flex-1 mt-1 md:mt-0">
       <a
         :aria-label="event.title"
         :href="event.url"

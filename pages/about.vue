@@ -17,13 +17,13 @@
         fetchFormat="auto"
       />
 
-      <div class="mx-5 md:mx-0 text-md md:text-xl md:w-8/12 text-left">
-        <h2
-          class="text-2xl md:text-3xl w-fit pr-4 pb-1 border-b mb-6 border-black dark:border-white"
-        >
-          {{ page.title }}
+      <div class="mx-5 md:mx-0 md:w-8/12 text-left">
+        <h2 class="mx-auto text-2xl w-fit pr-4 pb-1 my-3 flex items-center">
+          <hr class="w-6" />
+          <span class="mx-4">{{ page.title }}</span>
+          <hr class="w-6" />
         </h2>
-        <nuxt-content :document="page" />
+        <nuxt-content :document="page" class="text-lg" />
       </div>
     </div>
     <div class="flex items-center m-3 justify-center">
@@ -38,6 +38,21 @@
         fetchFormat="auto"
         class="m-2"
       />
+    </div>
+    <div class="mt-5">
+      <h2 class="mx-auto text-2xl w-fit pr-4 pb-1 my-3 flex items-center">
+        <hr class="w-6" />
+        <span class="mx-4">My projects</span>
+        <hr class="w-6" />
+      </h2>
+      <div class="flex items-center flex-wrap justify-center md:justify-start">
+        <project-card
+          v-for="project in projects"
+          :key="project.slug"
+          :project="project"
+          class="md:mr-3 mb-3"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -79,8 +94,11 @@ export default {
   },
   async asyncData({ $content }) {
     const page = await $content('about').fetch()
+    const projects = await $content('projects')
+      .only(['name', 'description', 'demo', 'repo', 'thumbnail'])
+      .fetch()
 
-    return { page }
+    return { page, projects }
   }
 }
 </script>
