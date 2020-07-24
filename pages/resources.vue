@@ -1,21 +1,23 @@
 <template>
   <section class="mx-auto overflow-auto w-screen md:w-auto md:w-9/12">
     <div
-      class="mb-5 md:mt-5 flex items-center self-center md:self-start text-sm mx-3"
+      class="m-2 ml-4 md:mx-0 md:mt-5 flex items-start text-sm self-center md:self-start md:ml-2"
     >
-      <h4>Sort by</h4>
+      <h4 class="w-1/6 self-start sm:w-16 pt-1">Sort by</h4>
       <div class="ml-3">
         <chip
           v-for="tag in tags"
-          :key="tag.title"
-          :text="tag.title"
-          :class="tagClass(tag.active)"
+          :key="tag"
+          :text="tag"
+          :class="tagClass(tag)"
+          :active="isSelectedTag(tag)"
+          v-on:chip-clicked="sortByTag"
           class="text-sm px-3 border-mayas-green-dark mx-1 mb-2"
           clickable
         />
       </div>
     </div>
-    <div class="mx-3">
+    <div v-show="!byTag || byTag === 'Podcasts'" class="mx-3">
       <h2 class="text-2xl text-center md:text-left mb-3">Podcasts</h2>
       <div class="flex md:justify-start justify-center flex-wrap">
         <podcast
@@ -26,7 +28,7 @@
         />
       </div>
     </div>
-    <div class="mx-3">
+    <div v-show="!byTag || byTag === 'Videos'" class="mx-3">
       <h2 class="text-2xl text-center md:text-left mb-3">Videos</h2>
       <div class="flex md:justify-start justify-center flex-wrap">
         <video-card
@@ -37,13 +39,13 @@
         />
       </div>
     </div>
-    <div class="mx-3">
+    <div v-show="!byTag || byTag === 'Courses'" class="mx-3">
       <h2 class="text-2xl text-center md:text-left my-3">Courses</h2>
       <div class="flex md:justify-start justify-center flex-wrap">
         Coming soon
       </div>
     </div>
-    <div class="mx-3">
+    <div v-show="!byTag || byTag === 'Books'" class="mx-3">
       <h2 class="text-2xl text-center md:text-left my-3">Books</h2>
       <div class="flex md:justify-start justify-center flex-wrap">
         Coming soon
@@ -52,23 +54,13 @@
   </section>
 </template>
 <script>
+import sortByTag from '@/mixins/sortByTag'
 export default {
+  mixins: [sortByTag],
   data() {
     return {
-      tags: [
-        {
-          title: 'Interviews',
-          active: true
-        },
-        {
-          title: 'Podcasts',
-          active: false
-        },
-        {
-          title: 'Talks',
-          active: false
-        }
-      ]
+      tags: ['Podcasts', 'Videos', 'Courses', 'Books'],
+      byTag: ''
     }
   },
   async asyncData({ $content }) {
@@ -81,13 +73,6 @@ export default {
       .fetch()
 
     return { podcasts, videos }
-  },
-  methods: {
-    tagClass(active) {
-      return {
-        'bg-mayas-green-dark': active
-      }
-    }
   }
 }
 </script>
