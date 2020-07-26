@@ -11,31 +11,11 @@ export default {
       description: this.page.description,
       meta: [
         {
-          hid: 'description',
-          name: 'description',
-          content: this.page.description
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: this.page.title
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content: this.page.description
-        },
-        {
           hid: 'twitter:image',
           name: 'twitter:image',
           content: `https://res.cloudinary.com/mayashavin/image/upload/c_scale,f_auto,q_auto,w_300/${this.page.img}`
         },
         // Facebook OpenGraph
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: this.page.title
-        },
         {
           hid: 'og:site_name',
           property: 'og:site_name',
@@ -45,16 +25,6 @@ export default {
           hid: 'og:image',
           property: 'og:image',
           content: `https://res.cloudinary.com/mayashavin/image/upload/c_scale,f_auto,q_auto,w_300/${this.page.img}`
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: this.page.description
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: `https://mayashavin.com${this.$route.path}`
         }
       ]
     }
