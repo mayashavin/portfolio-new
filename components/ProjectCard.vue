@@ -5,6 +5,14 @@
     <a
       :aria-label="`Click to visit demo of ${project.name}`"
       :href="project.demo"
+      @click="
+        track(
+          'projects',
+          'view project',
+          `project: ${project.name}`,
+          project.name
+        )
+      "
       rel="noopener noreferrer"
       target="_blank"
     >
@@ -34,7 +42,10 @@
   </article>
 </template>
 <script>
+import track from '@/mixins/track'
+
 export default {
+  mixins: [track],
   props: {
     project: {
       type: Object,

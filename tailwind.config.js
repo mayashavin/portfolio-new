@@ -1,5 +1,11 @@
 module.exports = {
-  purge: [],
+  purge: [
+    'components/**/*.vue',
+    'layouts/**/*.vue',
+    'pages/**/*.vue',
+    'plugins/**/*.js',
+    'nuxt.config.js'
+  ],
   theme: {
     darkSelector: '.dark-mode',
     screens: {
@@ -37,12 +43,6 @@ module.exports = {
           'green-dark': '#337e95',
           'green-light': '#69bac9',
         }
-      },
-      gridTemplateRows: {
-        'grid-card': '50px 1fr 1fr'
-      },
-      gridTemplateColumns: {
-        '1-3': 'auto 1fr'
       },
       fontSize: {
         default: '14px',

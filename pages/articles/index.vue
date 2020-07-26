@@ -26,7 +26,9 @@
         v-for="post in filteredPosts"
         :key="post.slug"
         :to="`/articles/${post.slug}`"
-        @click.native="track(post.slug)"
+        @click.native="
+          track('blog', 'view blog post', `single post: ${post.slug}`)
+        "
         class="mx-2 my-3"
       >
         <card :post="post" />
@@ -35,9 +37,10 @@
   </section>
 </template>
 <script>
+import track from '@/mixins/track'
 import sortByTag from '@/mixins/sortByTag'
 export default {
-  mixins: [sortByTag],
+  mixins: [sortByTag, track],
   head() {
     return {
       title: this.$t('articles.title'),
@@ -124,12 +127,6 @@ export default {
     ])
 
     return { posts, tags }
-  },
-  methods: {
-    track(slug) {
-      this.$ga &&
-        this.$ga.event('blog', 'view blog post', `single post: ${slug}`, slug)
-    }
   }
 }
 </script>

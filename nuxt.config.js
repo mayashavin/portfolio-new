@@ -76,7 +76,7 @@ export default {
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
-  css: ['~/assets/css/tailwind.css', '~/assets/css/button.css'],
+  css: ['~/assets/css/tailwind.css'],
   plugins: ['~/plugins/i18n', '~/plugins/cloudinary', '~/plugins/lazysizes'],
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
