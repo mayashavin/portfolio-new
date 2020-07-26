@@ -8,6 +8,9 @@ module.exports = {
       lg: '1024px',
       xl: '1280px'
     },
+    minHeight: {
+      fit: 'fit-content'
+    },
     extend: {
       colors: {
         mayas: {

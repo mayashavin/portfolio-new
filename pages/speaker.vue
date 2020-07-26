@@ -1,9 +1,9 @@
 <template>
   <section class="flex mx-3 md:mx-auto flex-col items-start h-0 max-w-5xl">
     <div
-      class="mb-5 md:mt-5 flex items-start self-center md:self-start text-sm w-full"
+      class="mb-5 md:mt-5 flex items-start self-center md:self-start text-sm w-full min-h-fit"
     >
-      <h4 class="pt-1 self-start">Sort by</h4>
+      <h4 class="pt-1 self-start">{{ $t('sortBy') }}</h4>
       <div class="ml-3">
         <chip
           v-for="tag in tags"
@@ -36,6 +36,12 @@
 import sortByTag from '@/mixins/sortByTag'
 export default {
   mixins: [sortByTag],
+  head() {
+    return {
+      title: this.$t('speaker.title'),
+      description: this.$t('speaker.description')
+    }
+  },
   data() {
     return {
       tags: ['Upcoming', 'Past'],

@@ -39,5 +39,29 @@
     "actions": {
       "home": "Take me to home page"
     }
-  }
+  },
+  "about": {
+    "title": "A bit about me - Maya Shavin",
+    "description": "Some brief info about what I do and some of my current side projects"
+  },
+  "speaker": {
+    "title": "Maya Shavin as a speaker",
+    "description": "My updated schedule of conferences, meetups and workshops where I participated or will participate next."
+  },
+  "articles": {
+    "title": "Maya's blog - Everything about coding & JavaScript",
+    "description": "This is my personal blog, where you will find tutorials on JavaScript, Vue, Nuxt, CSS and anything related to frontend development."
+  },
+  "resources": {
+    "title": "Maya's corner - Talks, interviews, podcasts, books and courses",
+    "description": "A collection of podcasts, interviews, talks videos featured me, and my other works like books and tutorial course.",
+    "sections": {
+      "podcasts": "Podcasts",
+      "videos": "Videos",
+      "books": "Books",
+      "courses": "Courses"
+    },
+    "comingsoon": "Coming soon"
+  },
+  "sortBy": "Sort by"
 }

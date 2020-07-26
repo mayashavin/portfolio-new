@@ -58,6 +58,12 @@
 </template>
 <script>
 export default {
+  head() {
+    return {
+      title: this.$t('about.title'),
+      description: this.$t('about.description')
+    }
+  },
   data() {
     return {
       frameworks: {
@@ -96,6 +102,7 @@ export default {
     const page = await $content('about').fetch()
     const projects = await $content('projects')
       .only(['name', 'description', 'demo', 'repo', 'thumbnail'])
+      .sortBy('name', 'asc')
       .fetch()
 
     return { page, projects }
