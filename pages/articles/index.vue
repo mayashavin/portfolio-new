@@ -26,6 +26,7 @@
         v-for="post in filteredPosts"
         :key="post.slug"
         :to="`/articles/${post.slug}`"
+        @click.native="track(post.slug)"
         class="mx-2 my-3"
       >
         <card :post="post" />
@@ -40,7 +41,21 @@ export default {
   head() {
     return {
       title: this.$t('articles.title'),
-      description: this.$t('articles.description')
+      description: this.$t('articles.description'),
+      meta: [
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content:
+            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/blog_cover'
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content:
+            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/blog_cover'
+        }
+      ]
     }
   },
   data() {
@@ -77,6 +92,11 @@ export default {
     ])
 
     return { posts, tags }
+  },
+  methods: {
+    track(slug) {
+      this.$ga.event('blog', 'view blog post', `single post: ${slug}`, slug)
+    }
   }
 }
 </script>

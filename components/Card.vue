@@ -14,10 +14,10 @@
       <div class="font-semibold capitalize text-2xl">
         {{ post.title }}
       </div>
-      <p class="text-gray-300 text-sm mb-2 truncate visible">
+      <p class="dark:text-gray-300 text-sm mb-2 truncate visible">
         {{ post.description }}
       </p>
-      <div class="text-gray-300 text-sm">
+      <div class="dark:text-gray-300 text-sm">
         <span>{{ post.publishedTime }}</span> ·
         <span>{{ post.readingTime }}</span>
       </div>

@@ -73,7 +73,21 @@ export default {
   head() {
     return {
       title: this.$t('resources.title'),
-      description: this.$t('resources.description')
+      description: this.$t('resources.description'),
+      meta: [
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content:
+            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/resources_cover'
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content:
+            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/resources_cover'
+        }
+      ]
     }
   },
   data() {

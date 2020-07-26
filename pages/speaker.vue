@@ -39,7 +39,21 @@ export default {
   head() {
     return {
       title: this.$t('speaker.title'),
-      description: this.$t('speaker.description')
+      description: this.$t('speaker.description'),
+      meta: [
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content:
+            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/speaker_cover'
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content:
+            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/speaker_cover'
+        }
+      ]
     }
   },
   data() {

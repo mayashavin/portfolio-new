@@ -16,7 +16,13 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: pkg.description },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content:
+          'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/portfolio_cover'
+      }
     ],
     link: [
       {
@@ -39,7 +45,9 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxt/content',
-    '@nuxtjs/feed'
+    '@nuxtjs/feed',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
   ],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
@@ -60,23 +68,22 @@ export default {
       }
     }
   },
-  buildModules: ['@nuxtjs/color-mode'],
+  buildModules: ['@nuxtjs/color-mode', '@nuxtjs/google-analytics'],
   purgeCSS: {
     whitelist: ['dark-mode']
   },
   pwa: {
     meta: {
       name: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
-      description:
-        'My personal site where I share about my blog posts, videos, OSS projects and the conferences I spoke/will speak at.',
+      description: 'Everything about me as Web developer, blogger and speaker',
       theme_color: 'transparent',
       ogSiteName: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
       ogTitle: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
       ogDescription:
-        'My personal site where I share about my blog posts, videos, OSS projects and the conferences I spoke/will speak at.',
+        'Everything about me as Web developer, blogger and speaker',
       ogUrl: 'https://mayashavin.com',
       ogImage:
-        'https://res.cloudinary.com/mayashavin/image/upload/w_400,h_400,c_fill,g_auto,r_10/v1563826725/mayashavin/Maya_new.png',
+        'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759983/mayashavin/portfolio_cover',
       ogHost: 'https://mayashavin.com',
       twitterCard: 'summary_large_images',
       icons: [
@@ -128,13 +135,11 @@ export default {
   meta: {
     name: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
     ogTitle: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
-    ogSiteName:
-      'My personal site where I share about my blog posts, videos, OSS projects and the conferences I spoke/will speak at.',
-    ogDescription:
-      'My personal site where I share about my blog posts, videos, OSS projects and the conferences I spoke/will speak at.',
+    ogSiteName: 'Everything about me as Web developer, blogger and speaker.',
+    ogDescription: 'Everything about me as Web developer, blogger and speaker.',
     ogUrl: 'https://mayashavin.com',
     ogImage:
-      'https://res.cloudinary.com/mayashavin/image/upload/w_400,h_400,c_fill,g_auto,r_10/v1563826725/mayashavin/Maya_new.png',
+      'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759983/mayashavin/portfolio_cover',
     twitterCard: 'summary_large_images',
     twitterCreator: '@mayashavin',
     twitterSite: '@mayashavin',
@@ -226,5 +231,30 @@ export default {
         type: 'rss2'
       }
     })
+  },
+  sitemap: {
+    hostname: 'https://mayashavin.com',
+    exclude: ['/secret', '/admin/**']
+  },
+  googleAnalytics: {
+    id: '',
+    dev: false,
+    autoTracking: {
+      screenview: true,
+      pageviewTemplate(route) {
+        return {
+          page: route.path,
+          title: document.title,
+          location: window.location.href
+        }
+      },
+      skipSamePath: true
+    }
+  },
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID,
+      dev: false
+    }
   }
 }
