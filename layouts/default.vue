@@ -48,9 +48,6 @@ body {
   background: var(--page-background);
   overflow: hidden;
   height: 100%;
-  /* background-image: url('https://res.cloudinary.com/mayashavin/image/upload/w_500/v1594814559/mayashavin/white-logo.png');
-  background-position: right bottom;
-  background-repeat: no-repeat; */
 }
 
 *,

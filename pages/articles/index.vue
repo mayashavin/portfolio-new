@@ -20,7 +20,7 @@
     <transition-group
       name="page"
       tag="div"
-      class="overflow-auto md:pr-8 flex justify-center md:justify-start flex-wrap"
+      class="overflow-auto md:pr-8 flex justify-center md:justify-start flex-wrap w-full"
     >
       <nuxt-link
         v-for="post in filteredPosts"

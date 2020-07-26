@@ -1,22 +1,23 @@
 <template>
   <section class="mt-3 flex-col justify-center overflow-auto md:w-9/12 mx-auto">
     <div class="flex justify-evenly items-center flex-col md:flex-row">
-      <cld-image
-        alt="Maya Shavin - Web developer, writer and speaker"
-        loading="lazy"
-        public-id="mayashavin/Maya_2020"
-        width="150"
-        height="150"
-        quality="auto"
-        gravity="auto"
-        radius="max"
-        aspect-ratio="1:1"
-        crop="fill"
-        aria-hidden="true"
-        class="mx-3"
-        fetchFormat="auto"
-      />
-
+      <div class="about--img">
+        <cld-image
+          alt="Maya Shavin - Web developer, writer and speaker"
+          loading="lazy"
+          public-id="mayashavin/Maya_2020"
+          width="150"
+          height="150"
+          quality="auto"
+          gravity="auto"
+          radius="max"
+          aspect-ratio="1:1"
+          crop="fill"
+          aria-hidden="true"
+          class="mx-3"
+          fetchFormat="auto"
+        />
+      </div>
       <div class="mx-5 md:mx-0 md:w-8/12 text-left">
         <h2 class="mx-auto text-2xl w-fit pr-4 pb-1 my-3 flex items-center">
           <hr class="w-6" />
@@ -109,3 +110,23 @@ export default {
   }
 }
 </script>
+<style scoped>
+.about--img {
+  width: 250px;
+  height: 250px;
+  @apply flex justify-center items-center relative;
+}
+
+.about--img::after {
+  background-image: url('https://res.cloudinary.com/mayashavin/image/upload/w_250,h_250,c_scale/v1594814559/mayashavin/white-logo.png');
+  background-repeat: no-repeat;
+  content: '';
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+</style>
