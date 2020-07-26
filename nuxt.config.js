@@ -85,7 +85,7 @@ export default {
       ogImage:
         'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759983/mayashavin/portfolio_cover',
       ogHost: 'https://mayashavin.com',
-      twitterCard: 'summary_large_images',
+      twitterCard: 'summary_large_image',
       icons: [
         {
           src:
@@ -140,7 +140,7 @@ export default {
     ogUrl: 'https://mayashavin.com',
     ogImage:
       'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759983/mayashavin/portfolio_cover',
-    twitterCard: 'summary_large_images',
+    twitterCard: 'summary_large_image',
     twitterCreator: '@mayashavin',
     twitterSite: '@mayashavin',
     theme_color: '#424242'
