@@ -21,7 +21,7 @@ export default {
         hid: 'twitter:image',
         name: 'twitter:image',
         content:
-          'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/portfolio_cover.jpg'
+          'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/portfolio_cover_2.jpg'
       },
       // Twitter Card
       {
@@ -59,7 +59,7 @@ export default {
         hid: 'og:image',
         property: 'og:image',
         content:
-          'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/portfolio_cover.jpg'
+          'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/portfolio_cover_2.jpg'
       }
     ],
     link: [

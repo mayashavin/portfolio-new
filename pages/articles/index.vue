@@ -82,13 +82,13 @@ export default {
           hid: 'twitter:image',
           name: 'twitter:image',
           content:
-            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/blog_cover.jpg'
+            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/blog_cover_2.jpg'
         },
         {
           hid: 'og:image',
           property: 'og:image',
           content:
-            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/blog_cover.jpg'
+            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/blog_cover_2.jpg'
         }
       ]
     }
