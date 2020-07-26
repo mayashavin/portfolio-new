@@ -46,18 +46,18 @@ jobs:
     - name: Build
       run: yarn build
     
-   # - name: Deploy to Vercel
-   #   uses: amondnet/vercel-action@v19.0.1+1
-   #   with:
-   #     vercel-token: ${{ secrets.PAT_ZEIT_DEPLOY }} # Required
-   #     vercel-args: '--prod' #Optional
-   #     vercel-org-id: ${{ secrets.ZEIT_ORG_ID}}  #Required
-   #     vercel-project-id: ${{ secrets.ZEIT_PROJECT_ID}} #Required 
-    - name: Netlify Deploy
-      uses: jsmrcaga/action-netlify-deploy@v1.2.0
+    - name: Deploy to Vercel
+      uses: amondnet/vercel-action@v19.0.1+1
       with:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_APP_ID }}
+        vercel-token: ${{ secrets.PAT_ZEIT_DEPLOY }} # Required
+        vercel-args: '--prod' #Optional
+        vercel-org-id: ${{ secrets.ZEIT_ORG_ID}}  #Required
+        vercel-project-id: ${{ secrets.ZEIT_PROJECT_ID}} #Required 
+   # - name: Netlify Deploy
+   #   uses: jsmrcaga/action-netlify-deploy@v1.2.0
+   #   with:
+   #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+   #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_APP_ID }}
     - name: Tweet about it
       uses: ethomson/send-tweet-action@v1
       with:
