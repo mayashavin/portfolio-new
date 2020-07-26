@@ -10,21 +10,47 @@ export default {
       title: this.page.title,
       description: this.page.description,
       meta: [
+        // Twitter Card
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.page.description
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.page.title
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.page.description
+        },
+        // Facebook OpenGraph
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.page.title
+        },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: `https://res.cloudinary.com/mayashavin/image/upload/c_scale,f_auto,q_auto,w_300/${this.page.img}`
+          content: `https://res.cloudinary.com/mayashavin/image/upload/c_scale,q_auto,h_300/${this.page.img}.jpg`
         },
-        // Facebook OpenGraph
         {
           hid: 'og:site_name',
           property: 'og:site_name',
           content: this.page.title
         },
         {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.page.description
+        },
+        {
           hid: 'og:image',
           property: 'og:image',
-          content: `https://res.cloudinary.com/mayashavin/image/upload/c_scale,f_auto,q_auto,w_300/${this.page.img}`
+          content: `https://res.cloudinary.com/mayashavin/image/upload/c_scale,q_auto,h_300/${this.page.img}.jpg`
         }
       ]
     }

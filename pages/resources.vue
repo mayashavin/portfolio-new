@@ -76,16 +76,47 @@ export default {
       description: this.$t('resources.description'),
       meta: [
         {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('resources.description')
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.$t('resources.title')
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.$t('resources.description')
+        },
+        // Facebook OpenGraph
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.$t('resources.title')
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: this.$t('resources.description')
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.$t('resources.description')
+        },
+        {
           hid: 'twitter:image',
           name: 'twitter:image',
           content:
-            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/resources_cover'
+            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/resources_cover.jpg'
         },
         {
           hid: 'og:image',
           property: 'og:image',
           content:
-            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/resources_cover'
+            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/resources_cover.jpg'
         }
       ]
     }

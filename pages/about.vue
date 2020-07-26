@@ -1,7 +1,7 @@
 <template>
   <section class="mt-3 flex-col justify-center overflow-auto md:w-9/12 mx-auto">
     <div class="flex justify-evenly items-center flex-col md:flex-row">
-      <div class="about--img">
+      <div class="about--img md:mr-3 lg:mr-0">
         <cld-image
           alt="Maya Shavin - Web developer, writer and speaker"
           loading="lazy"
@@ -24,7 +24,7 @@
           <span class="mx-4">{{ page.title }}</span>
           <hr class="w-6" />
         </h2>
-        <nuxt-content :document="page" class="text-lg" />
+        <nuxt-content :document="page" class="text-lg md:mr-3" />
       </div>
     </div>
     <div class="flex items-center m-3 justify-center">
@@ -62,7 +62,41 @@ export default {
   head() {
     return {
       title: this.$t('about.title'),
-      description: this.$t('about.description')
+      description: this.$t('about.description'),
+      meta: [
+        // Twitter Card
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('about.description')
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.$t('about.title')
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.$t('about.description')
+        },
+        // Facebook OpenGraph
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.$t('about.title')
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: this.$t('about.description')
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.$t('about.description')
+        }
+      ]
     }
   },
   data() {

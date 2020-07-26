@@ -12,7 +12,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: "Maya Shavin's Portfolio",
+    title: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -21,7 +21,45 @@ export default {
         hid: 'twitter:image',
         name: 'twitter:image',
         content:
-          'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/portfolio_cover'
+          'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/portfolio_cover.jpg'
+      },
+      // Twitter Card
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+        hid: 'twitter:card'
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm'
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: 'Everything about me as Web developer, blogger and speaker'
+      },
+      // Facebook OpenGraph
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm'
+      },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'Everything about me as Web developer, blogger and speaker'
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content:
+          'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/portfolio_cover.jpg'
       }
     ],
     link: [
@@ -42,16 +80,12 @@ export default {
   plugins: ['~/plugins/i18n', '~/plugins/cloudinary', '~/plugins/lazysizes'],
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxt/content',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots'
   ],
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-  },
   build: {
     /*
      ** You can extend webpack config here
@@ -77,15 +111,6 @@ export default {
       name: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
       description: 'Everything about me as Web developer, blogger and speaker',
       theme_color: 'transparent',
-      ogSiteName: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
-      ogTitle: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
-      ogDescription:
-        'Everything about me as Web developer, blogger and speaker',
-      ogUrl: 'https://mayashavin.com',
-      ogImage:
-        'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759983/mayashavin/portfolio_cover',
-      ogHost: 'https://mayashavin.com',
-      twitterCard: 'summary_large_image',
       icons: [
         {
           src:
@@ -131,19 +156,6 @@ export default {
         }
       ]
     }
-  },
-  meta: {
-    name: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
-    ogTitle: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
-    ogSiteName: 'Everything about me as Web developer, blogger and speaker.',
-    ogDescription: 'Everything about me as Web developer, blogger and speaker.',
-    ogUrl: 'https://mayashavin.com',
-    ogImage:
-      'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759983/mayashavin/portfolio_cover',
-    twitterCard: 'summary_large_image',
-    twitterCreator: '@mayashavin',
-    twitterSite: '@mayashavin',
-    theme_color: '#424242'
   },
   icon: {
     iconSrc:

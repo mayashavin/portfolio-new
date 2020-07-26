@@ -42,16 +42,47 @@ export default {
       description: this.$t('speaker.description'),
       meta: [
         {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('speaker.description')
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.$t('speaker.title')
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.$t('speaker.description')
+        },
+        // Facebook OpenGraph
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.$t('speaker.title')
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: this.$t('speaker.description')
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.$t('speaker.description')
+        },
+        {
           hid: 'twitter:image',
           name: 'twitter:image',
           content:
-            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/speaker_cover'
+            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/speaker_cover.jpg'
         },
         {
           hid: 'og:image',
           property: 'og:image',
           content:
-            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/speaker_cover'
+            'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/speaker_cover.jpg'
         }
       ]
     }
