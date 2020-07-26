@@ -28,7 +28,7 @@ export default {
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: `https://res.cloudinary.com/mayashavin/image/upload/${this.page.img}`
+          content: `https://res.cloudinary.com/mayashavin/image/upload/c_scale,f_auto,q_auto,w_300/${this.page.img}`
         },
         // Facebook OpenGraph
         {
@@ -44,7 +44,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `https://res.cloudinary.com/mayashavin/image/upload/${this.page.img}`
+          content: `https://res.cloudinary.com/mayashavin/image/upload/c_scale,f_auto,q_auto,w_300/${this.page.img}`
         },
         {
           hid: 'og:description',
