@@ -20,9 +20,9 @@
       </div>
       <div class="mx-5 md:mx-0 md:w-8/12 text-left">
         <h2 class="mx-auto text-2xl w-fit pr-4 pb-1 my-3 flex items-center">
-          <hr class="w-6" />
+          <hr class="w-6 border-black dark:border-white" />
           <span class="mx-4">{{ page.title }}</span>
-          <hr class="w-6" />
+          <hr class="w-6 border-black dark:border-white" />
         </h2>
         <nuxt-content :document="page" class="text-lg md:mr-3" />
       </div>
@@ -42,9 +42,9 @@
     </div>
     <div class="mt-5">
       <h2 class="mx-auto text-2xl w-fit pr-4 pb-1 my-3 flex items-center">
-        <hr class="w-6" />
+        <hr class="w-6 border-black dark:border-white" />
         <span class="mx-4">My projects</span>
-        <hr class="w-6" />
+        <hr class="w-6 border-black dark:border-white" />
       </h2>
       <div class="flex items-center flex-wrap justify-center md:justify-start">
         <project-card
