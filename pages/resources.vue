@@ -36,7 +36,7 @@
       </div>
       <div key="videos" v-show="!byTag || byTag === 'Videos'" class="mx-3">
         <h2 class="text-2xl text-center md:text-left mb-3">
-          {{ $t('resources.sections.video') }}
+          {{ $t('resources.sections.videos') }}
         </h2>
         <div class="flex md:justify-start justify-center flex-wrap">
           <video-card

@@ -43,7 +43,7 @@
         >
           {{ channel.name }}
         </a>
-        <span class="text-gray-500">- {{ video.publishedTime }}</span>
+        <span class="text-gray-500">- {{ publishedTime }}</span>
       </div>
     </slot>
   </div>
@@ -59,6 +59,10 @@ export default {
     },
     channel: {
       type: Object,
+      required: true
+    },
+    publishedTime: {
+      type: String,
       required: true
     }
   },
