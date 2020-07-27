@@ -59,6 +59,7 @@ jobs:
    #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
    #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_APP_ID }}
     - name: Tweet about it
+      if: "!contains(github.event.client_payload.message, 'skip twitter')"
       uses: ethomson/send-tweet-action@v1
       with:
         status: "🚀 ${{ github.event.client_payload.message }}"
