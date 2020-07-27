@@ -37,7 +37,7 @@
       >
         {{ project.name }}
       </a>
-      <p class="text-gray-500 text-sm mt-1">{{ project.description }}</p>
+      <p class="dark:text-gray-500 text-sm mt-1">{{ project.description }}</p>
     </div>
   </article>
 </template>

@@ -108,6 +108,7 @@ export default {
   async asyncData({ $content }) {
     const [posts, { tags }] = await Promise.all([
       $content('posts', { deep: true })
+        .sortBy('publishedAt', 'asc')
         .only([
           'title',
           'img',
@@ -121,7 +122,6 @@ export default {
         .where({
           extension: '.md'
         })
-        .sortBy('createdAt', 'desc')
         .fetch(),
       $content('posts/tags').fetch()
     ])

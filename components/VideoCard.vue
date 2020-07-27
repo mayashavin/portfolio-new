@@ -43,7 +43,7 @@
         >
           {{ channel.name }}
         </a>
-        <span class="text-gray-500">- {{ publishedTime }}</span>
+        <span class="dark:text-gray-500">- {{ publishedTime }}</span>
       </div>
     </slot>
   </div>
