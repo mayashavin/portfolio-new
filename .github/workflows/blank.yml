@@ -1,0 +1,65 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - '.github/workflows/**'
+      - 'content/**' 
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'Update submodule')"
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: Clone submodules
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.PAT_REPO_HOOK_TOKEN }}
+        submodules: true
+    
+    - name: Update submodules content
+      run: |
+        git submodule update --remote --recursive  
+    - run: git pull
+          
+    - name: Update submodules index
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        # Required
+        commit_message: Update submodule        
+
+        # Optional commit user and author settings
+        commit_user_name: My GitHub Actions Bot
+        commit_user_email: actions@github.com
+        commit_author: My GitHub Actions Bot <actions@github.com>
+    #    submodules: recursive      
+    - name: Install dependencies
+      run: yarn
+    
+    - name: Build
+      run: yarn build
+    
+    - name: Deploy to Vercel
+      uses: amondnet/vercel-action@v19.0.1+1
+      with:
+        vercel-token: ${{ secrets.PAT_ZEIT_DEPLOY }} # Required
+        vercel-args: '--prod' #Optional
+        vercel-org-id: ${{ secrets.ZEIT_ORG_ID}}  #Required
+        vercel-project-id: ${{ secrets.ZEIT_PROJECT_ID}} #Required 
+   # - name: Netlify Deploy
+   #   uses: jsmrcaga/action-netlify-deploy@v1.2.0
+   #   with:
+   #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+   #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_APP_ID }}
