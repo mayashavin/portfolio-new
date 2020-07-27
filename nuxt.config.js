@@ -104,7 +104,7 @@ export default {
   },
   buildModules: ['@nuxtjs/color-mode', '@nuxtjs/google-analytics'],
   purgeCSS: {
-    whitelist: ['dark-mode']
+    whitelist: ['dark-mode', 'bg-mayas-green-dark']
   },
   pwa: {
     meta: {
