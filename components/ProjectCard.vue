@@ -42,7 +42,7 @@
   </article>
 </template>
 <script>
-import track from '@/mixins/track'
+import track from '../mixins/track'
 
 export default {
   mixins: [track],

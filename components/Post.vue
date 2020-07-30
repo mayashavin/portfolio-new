@@ -1,6 +1,6 @@
 <template>
   <article
-    class="overflow-auto px-2 md:px-20 text-lg w-full bg-mayas-light-default dark:bg-mayas"
+    class="overflow-auto px-2 md:px-20 text-xl w-full bg-mayas-light-default dark:bg-mayas"
   >
     <div class="my-4">
       <chip
@@ -24,6 +24,8 @@
       v-if="post.img"
       :public-id="post.img"
       :alt="post.title"
+      quality="auto"
+      fetchFormat="auto"
       responsive
       loading="lazy"
       class="my-4 z-1"

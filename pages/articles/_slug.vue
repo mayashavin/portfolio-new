@@ -1,6 +1,6 @@
 <template>
   <section class="flex mx-auto flex-col items-center h-0 w-full">
-    <post :post="page" class="max-w-5xl" />
+    <post :post="page" class="max-w-screen-xl" />
   </section>
 </template>
 <script>
