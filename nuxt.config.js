@@ -77,10 +77,8 @@ export default {
    */
   loading: { color: '#fff' },
   css: ['~/assets/css/tailwind.css'],
-  plugins: ['~/plugins/i18n', '~/plugins/cloudinary', '~/plugins/lazysizes'],
+  plugins: ['~/plugins/i18n', '~/plugins/cloudinary'],
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/pwa',
     '@nuxt/content',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
@@ -102,67 +100,69 @@ export default {
       }
     }
   },
-  buildModules: ['@nuxtjs/color-mode', '@nuxtjs/google-analytics'],
+  buildModules: [
+    '@nuxtjs/color-mode',
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/pwa'
+  ],
   purgeCSS: {
     whitelist: ['dark-mode', 'bg-mayas-green-dark']
   },
-  pwa: {
-    meta: {
-      name: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
-      description: 'Everything about me as Web developer, blogger and speaker',
-      theme_color: 'transparent',
-      icons: [
-        {
-          src:
-            'https://res.cloudinary.com/mayashavin/image/upload/w_48,h_48,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-          size: '48x48',
-          type: 'image/png'
-        },
-        {
-          src:
-            'https://res.cloudinary.com/mayashavin/image/upload/w_72,h_72,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-          size: '72x72',
-          type: 'image/png'
-        },
-        {
-          src:
-            'https://res.cloudinary.com/mayashavin/image/upload/w_96,h_96,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-          size: '96x96',
-          type: 'image/png'
-        },
-        {
-          src:
-            'https://res.cloudinary.com/mayashavin/image/upload/w_144,h_144,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-          size: '144x144',
-          type: 'image/png'
-        },
-        {
-          src:
-            'https://res.cloudinary.com/mayashavin/image/upload/w_168,h_168,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-          size: '168x168',
-          type: 'image/png'
-        },
-        {
-          src:
-            'https://res.cloudinary.com/mayashavin/image/upload/w_192,h_192,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-          size: '192x192',
-          type: 'image/png'
-        },
-        {
-          src:
-            'https://res.cloudinary.com/mayashavin/image/upload/w_512,h_512,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-          size: '512x512',
-          type: 'image/png'
-        }
-      ]
-    }
-  },
-  icon: {
-    iconSrc:
-      'https://res.cloudinary.com/mayashavin/image/upload/v1539936657/mayashavin/rainbow.png'
+  manifest: {
+    name: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
+    short_name: 'Maya Shavin - Web developer',
+    description: 'Everything about me as Web developer, blogger and speaker',
+    theme_color: 'transparent',
+    ogImage: false,
+    icons: [
+      {
+        src:
+          'https://res.cloudinary.com/mayashavin/image/upload/w_48,h_48,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
+        size: '48x48',
+        type: 'image/png'
+      },
+      {
+        src:
+          'https://res.cloudinary.com/mayashavin/image/upload/w_72,h_72,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
+        size: '72x72',
+        type: 'image/png'
+      },
+      {
+        src:
+          'https://res.cloudinary.com/mayashavin/image/upload/w_96,h_96,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
+        size: '96x96',
+        type: 'image/png'
+      },
+      {
+        src:
+          'https://res.cloudinary.com/mayashavin/image/upload/w_144,h_144,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
+        size: '144x144',
+        type: 'image/png'
+      },
+      {
+        src:
+          'https://res.cloudinary.com/mayashavin/image/upload/w_168,h_168,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
+        size: '168x168',
+        type: 'image/png'
+      },
+      {
+        src:
+          'https://res.cloudinary.com/mayashavin/image/upload/w_192,h_192,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
+        size: '192x192',
+        type: 'image/png'
+      },
+      {
+        src:
+          'https://res.cloudinary.com/mayashavin/image/upload/w_512,h_512,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
+        size: '512x512',
+        type: 'image/png'
+      }
+    ]
   },
   content: {
     dir: 'content',
+    liveEdit: false,
     // Only search in title and description
     fullTextSearchFields: ['title', 'description'],
     markdown: {
@@ -198,6 +198,10 @@ export default {
       }
 
       if (['.md', '.yaml'].includes(document.extension)) {
+        if (document.publishedAt) {
+          document.publishedAt = new Date(document.publishedAt)
+        }
+
         const time = formatTime(
           document.publishedAt
             ? new Date(document.publishedAt)

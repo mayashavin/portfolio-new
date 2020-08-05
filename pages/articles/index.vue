@@ -108,7 +108,7 @@ export default {
   async asyncData({ $content }) {
     const [posts, { tags }] = await Promise.all([
       $content('posts', { deep: true })
-        .sortBy('publishedAt', 'asc')
+        .sortBy('publishedAt', 'desc')
         .only([
           'title',
           'img',
@@ -117,7 +117,8 @@ export default {
           'slug',
           'publishedTime',
           'readingTime',
-          'tags'
+          'tags',
+          'publishedAt'
         ])
         .where({
           extension: '.md'
