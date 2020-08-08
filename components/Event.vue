@@ -27,7 +27,9 @@
         loading="lazy"
       />
     </div>
-    <div class="px-3 flex flex-col justify-between text-sm flex-1 mt-1 md:mt-0">
+    <div
+      class="pr-3 md:px-3 flex flex-col justify-between text-sm flex-1 mt-1 md:mt-0"
+    >
       <a
         :aria-label="event.title"
         :href="event.url"

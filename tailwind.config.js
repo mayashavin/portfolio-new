@@ -15,7 +15,8 @@ module.exports = {
       xl: '1280px'
     },
     minHeight: {
-      fit: 'fit-content'
+      fit: 'fit-content',
+      0: '0'
     },
     extend: {
       colors: {

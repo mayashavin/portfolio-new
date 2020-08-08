@@ -18,7 +18,6 @@
 html {
   @apply font-display text-md box-border text-white;
   height: 100%;
-  overflow: hidden;
 }
 
 .dark-mode {
@@ -114,7 +113,7 @@ body {
 
 /* Handle */
 .dark-mode ::-webkit-scrollbar-thumb {
-  @apply bg-mayas-dark-80;
+  @apply bg-mayas-dark-40;
 }
 
 /* Handle on hover */

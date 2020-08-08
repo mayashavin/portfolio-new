@@ -1,5 +1,5 @@
 <template>
-  <section class="flex mx-3 md:mx-auto flex-col items-start h-0 max-w-5xl">
+  <section class="flex mx-3 md:mx-auto flex-col items-start max-w-5xl min-h-0">
     <div
       class="mb-5 md:mt-5 flex items-start self-center md:self-start text-sm w-full min-h-fit"
     >

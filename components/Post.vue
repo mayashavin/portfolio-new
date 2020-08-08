@@ -1,6 +1,6 @@
 <template>
   <article
-    class="overflow-auto px-2 md:px-20 text-xl w-full bg-mayas-light-default dark:bg-mayas"
+    class="px-2 md:px-20 text-xl w-full bg-mayas-light-default dark:bg-mayas"
   >
     <div class="my-4">
       <chip
