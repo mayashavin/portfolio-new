@@ -1,7 +1,7 @@
 # My Portfolio
 > [https://mayashavin.com](https://mayashavin.com)
 
-My new portfolio and blog using Nuxt.js, TailwindCSS, Cloudinary and deployed using Vercel.
+My new portfolio and blog using Nuxt.js, TailwindCSS, Cloudinary and deployed using Vercel
 
 ![](https://res.cloudinary.com/mayashavin/image/upload/v1595792604/mayashavin/portfolio_cover_2.jpg)
 
