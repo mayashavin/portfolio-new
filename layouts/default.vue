@@ -36,8 +36,8 @@ html {
     to bottom right,
     #c9a3f9 0%,
     #c9a3f9 50%,
-    #a069e8 50%,
-    #a069e8 100%
+    #bd96ef 50%,
+    #bd96ef 100%
   );
 
   @apply text-black;
@@ -93,17 +93,17 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-mayas-light-default;
+  @apply bg-violet-400;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-mayas-light-40;
+  @apply bg-violet-500;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-mayas-light-80;
+  @apply bg-violet-500;
 }
 
 /* Track */

@@ -30,7 +30,7 @@
             v-for="(podcast, index) in podcasts"
             :key="index"
             v-bind="podcast"
-            class="bg-mayas-dark-20 border-mayas-light-default dark:bg-mayas-dark-80 dark:border-mayas-sky-dark border mb-3 mx-2"
+            class="bg-mayas-dark-20 border-violet-400 dark:bg-mayas-dark-80 dark:border-mayas-sky-dark border mb-3 mx-2"
           />
         </div>
       </div>
@@ -43,7 +43,7 @@
             v-for="release in videos"
             :key="release.video.id"
             v-bind="release"
-            class="bg-mayas-dark-20 border-mayas-light-default dark:bg-mayas-dark-80 dark:border-mayas-dark-40 border mb-3 mx-2"
+            class="bg-mayas-dark-20 border-violet-400 dark:bg-mayas-dark-80 dark:border-mayas-dark-40 border mb-3 mx-2"
           />
         </div>
       </div>

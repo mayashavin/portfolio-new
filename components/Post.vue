@@ -1,7 +1,5 @@
 <template>
-  <article
-    class="px-2 md:px-20 text-xl w-full bg-mayas-light-default dark:bg-mayas"
-  >
+  <article class="px-2 md:px-20 text-xl w-full bg-violet-400 dark:bg-mayas">
     <div class="my-4">
       <chip
         v-for="tag in post.tags"

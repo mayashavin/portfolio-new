@@ -22,7 +22,7 @@
         <span>{{ post.readingTime }}</span>
       </div>
     </div>
-    <p class="text-mayas-hot-pink underline">
+    <p class="text-eggplant-500 dark:text-rose-500 underline">
       Continue reading
     </p>
   </div>

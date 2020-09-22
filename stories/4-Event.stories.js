@@ -40,7 +40,7 @@ export const Row = () => ({
     <div class="flex p-4 flex-wrap mx-3 font-display bg-mayas text-white">
       <event :talk="talk" :event="event" />    
     </div>
-    <div class="flex p-4 flex-wrap mx-3 font-display bg-mayas-light-default">
+    <div class="flex p-4 flex-wrap mx-3 font-display bg-violet-400">
       <event :talk="talk" :event="event" />    
     </div>
   </div>

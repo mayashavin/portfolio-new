@@ -3,7 +3,7 @@
     class="flex items-center md:items-start md:justify-start flex-col md:flex-row "
   >
     <div
-      class="relative flex justify-center w-150 h-150 bg-mayas-light-80 dark:bg-mayas-dark-40"
+      class="relative flex justify-center w-150 h-150 bg-violet-500 dark:bg-mayas-dark-40"
     >
       <div
         class="flex items-center flex-col bg-mayas-light-20 dark:bg-mayas px-5 h-fit z-10"
@@ -125,7 +125,7 @@ export default {
     chipColor() {
       switch (this.talk.type) {
         case 'light talk':
-          return 'border-mayas-light-60 bg-mayas-light-60'
+          return 'border-violet-700 bg-violet-700'
         case 'talk':
         default:
           return 'border-mayas-navy bg-mayas-navy'

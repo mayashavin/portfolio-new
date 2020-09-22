@@ -5,7 +5,7 @@
       class="w-screen absolute top-0 h-screen md:h-auto md:relative justify-center md:my-3 md:text-xl flex-col z-20 md:z-0 md:flex"
     >
       <div
-        class="bg-mayas-light-default md:flex-row dark:bg-mayas py-5 px-3 md:p-0 flex flex-col justify-center md:bg-transparent md:dark:bg-transparent"
+        class="bg-violet-400 md:flex-row dark:bg-mayas py-5 px-3 md:p-0 flex flex-col justify-center md:bg-transparent md:dark:bg-transparent"
       >
         <nuxt-link
           :class="highlightTab('about')"

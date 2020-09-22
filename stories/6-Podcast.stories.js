@@ -27,7 +27,7 @@ export const Default = () => ({
     <h1 class="text-mayas text-3xl font-semibold mx-3 mt-5">Podcast</h1>
     <div class="flex p-4 flex-wrap mx-3">
       <podcast :host="host" :episode="episode" :publishedTime="publishedTime" class=" bg-mayas text-white p-4"/>
-      <podcast :host="host" :episode="episode" :publishedTime="publishedTime" class=" bg-mayas-light-default ml-5 p-4"/>
+      <podcast :host="host" :episode="episode" :publishedTime="publishedTime" class=" bg-violet-400 ml-5 p-4"/>
     </div>
   </div>
   `

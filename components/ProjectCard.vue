@@ -1,6 +1,6 @@
 <template>
   <article
-    class="rounded w-320 border-mayas-light-default dark:border-mayas-sky-dark border bg-mayas-dark-20 dark:bg-mayas-dark-80 shadow-lg h-300"
+    class="rounded w-320 border-violet-400 dark:border-mayas-sky-dark border bg-mayas-dark-20 dark:bg-mayas-dark-80 shadow-lg h-300"
   >
     <a
       :aria-label="`Click to visit demo of ${project.name}`"
