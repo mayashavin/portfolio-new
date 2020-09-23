@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-3 flex-col justify-center overflow-auto md:w-9/12 mx-auto">
+  <section class="mt-3 flex-col justify-center overflow-y-auto md:w-9/12 mx-auto">
     <div class="flex justify-evenly items-center flex-col md:flex-row">
       <div class="about--img md:mr-3 lg:mr-0">
         <cld-image
