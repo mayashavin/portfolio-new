@@ -15,7 +15,25 @@
           <span>{{ post.publishedTime }}</span> ·
           <span>{{ post.readingTime }}</span>
         </div>
-        <share :title="post.title" :description="post.description" />
+        <div class="flex items-center">
+          <a
+            href="https://www.buymeacoffee.com/VTLRKH6"
+            rel="noopener noreferrer"
+            aria-label="Buy me a coffee"
+            target="_blank"
+          >
+            <cld-image
+              public-id="mayashavin/BMC"
+              fetchFormat="auto"
+              quality="auto"
+              height="24"
+              crop="scale"
+              alt="Buy Me A Coffee"
+              class="hover:shadow-md mr-2"
+            />
+          </a>
+          <share :title="post.title" :description="post.description" />
+        </div>
       </div>
     </div>
     <cld-image
@@ -31,6 +49,22 @@
     <div>
       <nuxt-content :document="post" class="my-4" />
       <div class="flex items-center justify-end mb-4">
+        <a
+          href="https://www.buymeacoffee.com/VTLRKH6"
+          rel="noopener noreferrer"
+          aria-label="Buy me a coffee"
+          target="_blank"
+        >
+          <cld-image
+            public-id="mayashavin/BMC"
+            fetchFormat="auto"
+            quality="auto"
+            height="24"
+            crop="scale"
+            alt="Buy Me A Coffee"
+            class="hover:shadow-md mr-2"
+          />
+        </a>
         <share :title="post.title" :description="post.description" />
       </div>
     </div>

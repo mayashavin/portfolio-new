@@ -16,51 +16,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description },
-      {
-        hid: 'twitter:image',
-        name: 'twitter:image',
-        content:
-          'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/portfolio_cover_2.jpg'
-      },
-      // Twitter Card
-      {
-        name: 'twitter:card',
-        content: 'summary_large_image',
-        hid: 'twitter:card'
-      },
-      {
-        hid: 'twitter:title',
-        name: 'twitter:title',
-        content: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm'
-      },
-      {
-        hid: 'twitter:description',
-        name: 'twitter:description',
-        content: 'Everything about me as Web developer, blogger and speaker'
-      },
-      // Facebook OpenGraph
-      {
-        hid: 'og:title',
-        property: 'og:title',
-        content: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm'
-      },
-      {
-        hid: 'og:site_name',
-        property: 'og:site_name',
-        content: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm'
-      },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: 'Everything about me as Web developer, blogger and speaker'
-      },
-      {
-        hid: 'og:image',
-        property: 'og:image',
-        content:
-          'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/portfolio_cover_2.jpg'
-      }
+      { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
       {
@@ -77,12 +33,13 @@ export default {
    */
   loading: { color: '#fff' },
   css: ['~/assets/css/tailwind.css'],
-  plugins: ['~/plugins/i18n', '~/plugins/cloudinary'],
+  plugins: ['~/plugins/i18n'],
   modules: [
     '@nuxt/content',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
-    '@nuxtjs/robots'
+    '@nuxtjs/robots',
+    '@nuxtjs/cloudinary'
   ],
   build: {
     /*
@@ -109,56 +66,23 @@ export default {
   purgeCSS: {
     whitelist: ['dark-mode', 'bg-mayas-green-dark']
   },
-  manifest: {
-    name: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
-    short_name: 'Maya Shavin - Web developer',
-    description: 'Everything about me as Web developer, blogger and speaker',
-    theme_color: 'transparent',
-    ogImage: false,
-    icons: [
-      {
-        src:
-          'https://res.cloudinary.com/mayashavin/image/upload/w_48,h_48,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-        size: '48x48',
-        type: 'image/png'
-      },
-      {
-        src:
-          'https://res.cloudinary.com/mayashavin/image/upload/w_72,h_72,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-        size: '72x72',
-        type: 'image/png'
-      },
-      {
-        src:
-          'https://res.cloudinary.com/mayashavin/image/upload/w_96,h_96,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-        size: '96x96',
-        type: 'image/png'
-      },
-      {
-        src:
-          'https://res.cloudinary.com/mayashavin/image/upload/w_144,h_144,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-        size: '144x144',
-        type: 'image/png'
-      },
-      {
-        src:
-          'https://res.cloudinary.com/mayashavin/image/upload/w_168,h_168,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-        size: '168x168',
-        type: 'image/png'
-      },
-      {
-        src:
-          'https://res.cloudinary.com/mayashavin/image/upload/w_192,h_192,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-        size: '192x192',
-        type: 'image/png'
-      },
-      {
-        src:
-          'https://res.cloudinary.com/mayashavin/image/upload/w_512,h_512,c_fit,ar_1:1,q_auto,f_auto/v1539936657/mayashavin/rainbow.png',
-        size: '512x512',
-        type: 'image/png'
-      }
-    ]
+  pwa: {
+    meta: {
+      name: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
+      description: 'Everything about me as Web developer, blogger and speaker',
+      ogImage:
+        'https://res.cloudinary.com/mayashavin/image/upload/q_auto,f_auto/v1595759984/mayashavin/portfolio_cover_2.jpg',
+      ogHost: 'https://mayashavin.com',
+      twitterCard: 'summary_large_image',
+      twitterSite: '@MayaShavin',
+      twitterCreator: '@MayaShavin'
+    },
+    manifest: {
+      name: 'Maya Shavin - Web developer | Speaker | Blogger | Bookworm',
+      short_name: 'Maya Shavin - Web developer',
+      description: 'Everything about me as Web developer, blogger and speaker',
+      theme_color: '#a069e8'
+    }
   },
   content: {
     dir: 'content',
@@ -175,6 +99,10 @@ export default {
         theme: 'prism-themes/themes/prism-a11y-dark.css'
       }
     }
+  },
+  cloudinary: {
+    cloudName: 'mayashavin',
+    useComponent: true
   },
   hooks: {
     'content:file:beforeInsert': document => {

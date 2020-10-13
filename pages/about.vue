@@ -1,5 +1,7 @@
 <template>
-  <section class="mt-3 flex-col justify-center overflow-y-auto md:w-9/12 mx-auto">
+  <section
+    class="mt-3 flex-col justify-center overflow-y-auto md:w-9/12 mx-auto"
+  >
     <div class="flex justify-evenly items-center flex-col md:flex-row">
       <div class="about--img md:mr-3 lg:mr-0">
         <cld-image
@@ -25,6 +27,30 @@
           <hr class="w-6 border-black dark:border-white" />
         </h2>
         <nuxt-content :document="page" class="text-lg md:mr-3" />
+        <div class="my-3 flex justify-start md:justify-left pt-3">
+          <a
+            href="https://www.buymeacoffee.com/VTLRKH6"
+            rel="noopener noreferrer"
+            aria-label="Buy me a coffee"
+            target="_blank"
+          >
+            <cld-image
+              public-id="mayashavin/default-orange"
+              fetchFormat="auto"
+              quality="auto"
+              height="42"
+              crop="scale"
+              alt="Buy Me A Coffee"
+              class="hover:shadow-md"
+            />
+          </a>
+          <!-- <nuxt-link
+            class="flex items-center justify-between ml-3 p-2 px-3 bg-eggplant-500 shadow-md rounded-b-md rounded-t-md hover:bg-eggplant-6000"
+          >
+            <icon v-bind="newsletter" size="24px" class="mr-2" />
+            Subscribe
+          </nuxt-link> -->
+        </div>
       </div>
     </div>
     <div class="flex items-center m-3 justify-center">
@@ -58,6 +84,8 @@
   </section>
 </template>
 <script>
+import { newsletter } from '../assets/icons'
+
 export default {
   head() {
     return {
@@ -101,6 +129,7 @@ export default {
   },
   data() {
     return {
+      newsletter,
       frameworks: {
         javascript: {
           label: 'JavaScript programming language',

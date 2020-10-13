@@ -1,6 +1,6 @@
 <template>
   <footer class="w-full mx-auto py-2">
-    <div class="flex justify-center">
+    <div class="flex justify-center items-center">
       <a
         v-for="(social, key) in socials"
         :key="key"
@@ -11,6 +11,22 @@
         class="m-3 md:m-2"
       >
         <icon v-bind="icons[key]" size="24px" />
+      </a>
+      <a
+        href="https://www.buymeacoffee.com/VTLRKH6"
+        rel="noopener noreferrer"
+        aria-label="Buy me a coffee"
+        target="_blank"
+      >
+        <cld-image
+          public-id="mayashavin/BMC"
+          fetchFormat="auto"
+          quality="auto"
+          height="24"
+          crop="scale"
+          alt="Buy Me A Coffee"
+          class="hover:shadow-md mx-2"
+        />
       </a>
     </div>
     <p class="text-xs text-center">
