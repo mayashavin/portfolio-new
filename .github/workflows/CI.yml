@@ -52,7 +52,7 @@ jobs:
       run: yarn build
     
     - name: Deploy to Vercel
-      uses: amondnet/vercel-action@v19.0.1+1
+      uses: amondnet/vercel-action@v19.0.1+4
       with:
         vercel-token: ${{ secrets.PAT_ZEIT_DEPLOY }} # Required
         vercel-args: '--prod' #Optional
