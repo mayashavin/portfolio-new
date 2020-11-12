@@ -1,4 +1,4 @@
-# My Portfolio
+# My Portfolio Website
 > [https://mayashavin.com](https://mayashavin.com)
 
 My new portfolio and blog using Nuxt.js, TailwindCSS, Cloudinary and deployed using Vercel
