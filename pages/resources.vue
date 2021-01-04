@@ -21,6 +21,45 @@
       name="page"
       class="overflow-auto md:pr-8 w-screen md:w-auto mt-3 md:mt-5"
     >
+      <div key="books" v-show="!byTag || byTag === 'Books'" class="mx-3">
+        <h2 class="text-2xl text-center md:text-left my-3">
+          {{ $t('resources.sections.books') }}
+        </h2>
+        <div class="flex md:justify-start justify-center flex-wrap">
+          <div
+            v-for="book in books"
+            :key="book.title"
+            class="bg-mayas-dark-20 border-violet-400 dark:bg-mayas-dark-80 dark:border-mayas-dark-40 border mb-3 mx-2 p-4 w-320"
+          >
+            <a
+              :href="book.url"
+              :aria-label="book.title"
+              rel=" noopener noreferrer"
+              target="_blank"
+            >
+              <cld-image
+                :public-id="book.thumbnail"
+                :alt="book.title"
+                loading="lazy"
+                crop="scale"
+                quality="auto"
+                fetchFormat="auto"
+                class="mx-auto"
+              />
+              <div class="my-2">
+                <span class="text-xl text-left flex">
+                  {{ book.title }}
+                </span>
+                <p
+                  class="dark:text-gray-300 text-sm mb-2 visible hover:shadow-xl"
+                >
+                  {{ book.description }}
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
       <div key="podcast" v-show="!byTag || byTag === 'Podcasts'" class="mx-3">
         <h2 class="text-2xl text-center md:text-left mb-3">
           {{ $t('resources.sections.podcasts') }}
@@ -50,14 +89,6 @@
       <div key="courses" v-show="!byTag || byTag === 'Courses'" class="mx-3">
         <h2 class="text-2xl text-center md:text-left my-3">
           {{ $t('resources.sections.courses') }}
-        </h2>
-        <div class="flex md:justify-start justify-center flex-wrap">
-          {{ $t('resources.comingsoon') }}
-        </div>
-      </div>
-      <div key="books" v-show="!byTag || byTag === 'Books'" class="mx-3">
-        <h2 class="text-2xl text-center md:text-left my-3">
-          {{ $t('resources.sections.books') }}
         </h2>
         <div class="flex md:justify-start justify-center flex-wrap">
           {{ $t('resources.comingsoon') }}
@@ -136,7 +167,9 @@ export default {
       .sortBy('createdAt', 'desc')
       .fetch()
 
-    return { podcasts, videos }
+    const books = await $content('books', { deep: true }).fetch()
+
+    return { podcasts, videos, books }
   }
 }
 </script>
