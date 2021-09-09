@@ -9,6 +9,7 @@
       height="160"
       quality="auto"
       fetchFormat="auto"
+      dpr="2.0"
     />
     <div class="mt-2">
       <div class="font-semibold capitalize text-2xl">
