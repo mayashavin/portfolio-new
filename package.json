@@ -16,15 +16,15 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@nuxt/content": "^1.10.0",
-    "@nuxtjs/cloudinary": "^1.0.0",
+    "@nuxt/content": "^1.14.0",
+    "@nuxtjs/cloudinary": "^1.0.3",
     "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/robots": "^2.4.2",
     "@nuxtjs/sitemap": "^2.4.0",
     "@nuxtjs/tailwindcss": "^2.0.0",
     "cross-env": "^5.2.0",
-    "nuxt": "2.14.0",
+    "nuxt": "2.15.8",
     "vue-i18n": "^8.18.2",
     "vue-js-modal": "^2.0.0-rc.6"
   },
@@ -44,7 +44,7 @@
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.1.0",
     "babel-preset-vue": "^2.0.2",
-    "eslint": "^5.15.1",
+    "eslint": "7.32.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-config-standard": ">=12.0.0",
     "eslint-loader": "^2.1.2",

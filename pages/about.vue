@@ -44,12 +44,6 @@
               class="hover:shadow-md"
             />
           </a>
-          <!-- <nuxt-link
-            class="flex items-center justify-between ml-3 p-2 px-3 bg-eggplant-500 shadow-md rounded-b-md rounded-t-md hover:bg-eggplant-6000"
-          >
-            <icon v-bind="newsletter" size="24px" class="mr-2" />
-            Subscribe
-          </nuxt-link> -->
         </div>
       </div>
     </div>

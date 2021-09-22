@@ -1,8 +1,8 @@
+import { $content } from '@nuxt/content'
 import pkg from './package'
 import formatTime from './helpers/formatTime'
 
 export default {
-  mode: 'universal',
   target: 'static',
   components: true,
   router: {
@@ -94,7 +94,10 @@ export default {
         target: '_blank',
         rel: 'noopener noreferrer'
       },
-      // remarkPlugins: ['remark-emoji'],
+      remarkPlugins: [
+        // ['remark-emoji', { emoticon: true }],
+        // ['remark-footnotes', { inlineNotes: true }]
+      ],
       prism: {
         theme: 'prism-themes/themes/prism-a11y-dark.css'
       }
@@ -141,7 +144,6 @@ export default {
     }
   },
   feed: async () => {
-    const { $content } = require('@nuxt/content')
     const { tags } = await $content('posts/tags').fetch()
     const posts = await $content('posts', { deep: true, text: true })
       .where({
@@ -178,10 +180,22 @@ export default {
   },
   sitemap: {
     hostname: 'https://mayashavin.com',
-    exclude: ['/secret', '/admin/**']
+    exclude: ['/secret', '/admin/**'],
+    routes: async () => {
+      const posts = await $content('posts', { deep: true, text: true })
+        .where({
+          extension: '.md'
+        })
+        .fetch()
+
+      return posts.map(post => ({
+        url: `/articles/${post.slug}`,
+        lastmod: post.updatedAt || post.createdAt
+      }))
+    }
   },
   googleAnalytics: {
-    id: '',
+    id: process.env.GOOGLE_ANALYTICS_ID,
     dev: false,
     autoTracking: {
       screenview: true,
