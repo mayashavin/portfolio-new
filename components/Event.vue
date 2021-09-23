@@ -15,15 +15,13 @@
         <span class="uppercase text-xl">{{ event.time.month }}</span>
         <span class="mb-1">{{ event.time.year }}</span>
       </div>
-      <cld-image
-        :public-id="talk.tech"
+      <nuxt-img
+        :src="talk.tech"
         :alt="`${talk.title}`"
         aria-hidden="true"
         class="absolute bottom-0 right-0 m-2"
         height="32"
-        crop="scale"
-        quality="auto"
-        fetchFormat="auto"
+        fit="scale"
         loading="lazy"
       />
     </div>

@@ -30,15 +30,13 @@
           class="order-first md:order-none flex items-center my-2 mx-3 md:my-0"
           aria-label="Click to go back to homepage"
         >
-          <cld-image
-            :transformation="effects"
+          <nuxt-img
+            :modifiers="effects"
             alt="Maya Shavin - Logo"
             loading="lazy"
-            public-id="mayashavin/white-logo"
+            src="mayashavin/white-logo"
             width="48"
-            crop="fill"
-            quality="auto"
-            fetchFormat="auto"
+            fit="fill"
             aria-hidden="true"
             class="w-8 md:w-auto lazyload"
           />
@@ -120,13 +118,16 @@ export default {
     },
     effects() {
       return this.$colorMode.value === this.colors.light.name
-        ? [
-            {
-              effect: 'colorize',
-              color: '#3d1472'
-            }
-          ]
-        : []
+        ? {
+            // effect: 'colorize',
+            // color: '#3d1472', /** there is a bug in Nuxt image */
+            ar: '1:1',
+            dpr: '1.0'
+          }
+        : {
+            ar: '1:1',
+            dpr: '1.0'
+          }
     },
     sidebarClass() {
       return {

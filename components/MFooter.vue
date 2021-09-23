@@ -18,12 +18,10 @@
         aria-label="Buy me a coffee"
         target="_blank"
       >
-        <cld-image
-          public-id="mayashavin/BMC"
-          fetchFormat="auto"
-          quality="auto"
+        <nuxt-img
+          src="mayashavin/BMC"
           height="24"
-          crop="scale"
+          fit="scale"
           alt="Buy Me A Coffee"
           class="hover:shadow-md mx-2"
         />

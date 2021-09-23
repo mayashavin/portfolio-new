@@ -9,16 +9,14 @@
       <div>
         <div>
           <div class="flex">
-            <cld-image
-              :public-id="host.logo"
+            <nuxt-img
+              :src="host.logo"
               :alt="host.title"
-              type="fetch"
+              :modifiers="{ dpr: '2.0' }"
               loading="lazy"
-              crop="scale"
+              fit="scale"
               width="40"
               height="40"
-              quality="auto"
-              fetchFormat="auto"
             />
             <div class="flex flex-col ml-2">
               <span>{{ host.title }}</span>

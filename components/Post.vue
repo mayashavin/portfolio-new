@@ -22,12 +22,12 @@
             aria-label="Buy me a coffee"
             target="_blank"
           >
-            <cld-image
-              public-id="mayashavin/BMC"
+            <nuxt-img
+              src="mayashavin/BMC"
               fetchFormat="auto"
               quality="auto"
               height="24"
-              crop="scale"
+              fit="scale"
               alt="Buy Me A Coffee"
               class="hover:shadow-md mr-2"
             />
@@ -36,9 +36,9 @@
         </div>
       </div>
     </div>
-    <cld-image
+    <nuxt-img
       v-if="post.img"
-      :public-id="post.img"
+      :src="post.img"
       :alt="post.title"
       quality="auto"
       fetchFormat="auto"
@@ -55,12 +55,12 @@
           aria-label="Buy me a coffee"
           target="_blank"
         >
-          <cld-image
-            public-id="mayashavin/BMC"
+          <nuxt-img
+            src="mayashavin/BMC"
             fetchFormat="auto"
             quality="auto"
             height="24"
-            crop="scale"
+            fit="scale"
             alt="Buy Me A Coffee"
             class="hover:shadow-md mr-2"
           />

@@ -3,17 +3,14 @@
     <div
       class="self-start ml-5 md:self-center md:ml-0 flex flex-col md:items-center"
     >
-      <cld-image
+      <nuxt-img
+        :modifiers="{ ar: '1:1', roundCorner: 'max', gravity: 'auto' }"
         alt="Maya Shavin - Web developer, writer and speaker"
         loading="lazy"
-        public-id="mayashavin/Maya_2020.png"
+        src="mayashavin/Maya_2020.png"
         width="200"
         height="200"
-        quality="auto"
-        gravity="auto"
-        radius="max"
-        aspect-ratio="1:1"
-        crop="fill"
+        fit="fill"
         aria-hidden="true"
         class="mx-3"
       />

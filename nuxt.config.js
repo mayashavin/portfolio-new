@@ -1,4 +1,5 @@
 import { $content } from '@nuxt/content'
+import reading from 'reading-time'
 import pkg from './package'
 import formatTime from './helpers/formatTime'
 
@@ -38,8 +39,7 @@ export default {
     '@nuxt/content',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
-    '@nuxtjs/robots',
-    '@nuxtjs/cloudinary'
+    '@nuxtjs/robots'
   ],
   build: {
     /*
@@ -61,7 +61,8 @@ export default {
     '@nuxtjs/color-mode',
     '@nuxtjs/google-analytics',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxt/image'
   ],
   purgeCSS: {
     whitelist: ['dark-mode', 'bg-mayas-green-dark']
@@ -103,14 +104,16 @@ export default {
       }
     }
   },
-  cloudinary: {
-    cloudName: 'mayashavin',
-    useComponent: true
+  image: {
+    provider: 'cloudinary',
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/mayashavin/image/upload/'
+    }
   },
   hooks: {
     'content:file:beforeInsert': document => {
       if (document.extension === '.md') {
-        const { text } = require('reading-time')(document.text)
+        const { text } = reading(document.text)
 
         document.readingTime = text
       }

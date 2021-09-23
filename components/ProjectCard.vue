@@ -16,8 +16,8 @@
       rel="noopener noreferrer"
       target="_blank"
     >
-      <cld-image
-        :public-id="project.thumbnail"
+      <nuxt-img
+        :src="project.thumbnail"
         :alt="project.name"
         class="mb-2 w-320 bg-mayas-light-20 dark:bg-mayas project-thumbnail hover:opacity-75 rounded-t lazyload"
         responsive

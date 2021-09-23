@@ -1,15 +1,13 @@
 <template>
   <div class="card w-320">
-    <cld-image
-      :public-id="post.img"
+    <nuxt-img
+      :src="post.img"
       :alt="post.title"
+      :modifiers="{ dpr: '2.0' }"
       class="mb-2 w-320 bg-mayas-light-20 dark:bg-mayas"
-      crop="fill"
+      fit="fill"
       width="320"
       height="160"
-      quality="auto"
-      fetchFormat="auto"
-      dpr="2.0"
     />
     <div class="mt-2">
       <div class="font-semibold capitalize text-2xl">

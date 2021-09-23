@@ -8,13 +8,9 @@
         rel="noopener noreferrer"
         target="_blank"
       >
-        <cld-image
-          :public-id="`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`"
+        <img
+          :src="image"
           :alt="video.title"
-          type="fetch"
-          width="280"
-          quality="auto"
-          fetchFormat="auto"
           loading="lazy"
           aria-hidden="true"
         />
@@ -49,6 +45,7 @@
   </div>
 </template>
 <script>
+import { buildImageUrl } from 'cloudinary-build-url'
 import { play } from '../assets/icons'
 
 export default {
@@ -75,6 +72,23 @@ export default {
     source() {
       return (
         this.video.url || `https://www.youtube.com/watch?v=${this.video.id}`
+      )
+    },
+    image() {
+      return buildImageUrl(
+        `https://img.youtube.com/vi/${this.video.id}/hqdefault.jpg`,
+        {
+          cloud: {
+            storageType: 'fetch',
+            cloudName: 'mayashavin'
+          },
+          transformations: {
+            resize: {
+              width: 280
+            },
+            dpr: '2.0'
+          }
+        }
       )
     }
   }

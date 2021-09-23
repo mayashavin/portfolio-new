@@ -37,13 +37,12 @@
               rel=" noopener noreferrer"
               target="_blank"
             >
-              <cld-image
-                :public-id="book.thumbnail"
+              <nuxt-img
+                :src="book.thumbnail"
                 :alt="book.title"
+                :modifiers="{ dpr: '2.0' }"
                 loading="lazy"
-                crop="scale"
-                quality="auto"
-                fetchFormat="auto"
+                fit="scale"
                 class="mx-auto"
               />
               <div class="my-2">

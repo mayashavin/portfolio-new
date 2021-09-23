@@ -4,17 +4,14 @@
   >
     <div class="flex justify-evenly items-center flex-col md:flex-row">
       <div class="about--img md:mr-3 lg:mr-0">
-        <cld-image
+        <nuxt-img
+          :modifiers="{ ar: '1:1', gravity: 'auto', roundCorner: 'max' }"
           alt="Maya Shavin - Web developer, writer and speaker"
           loading="lazy"
-          public-id="mayashavin/Maya_2020"
+          src="mayashavin/Maya_2020"
           width="150"
           height="150"
-          quality="auto"
-          gravity="auto"
-          radius="max"
-          aspect-ratio="1:1"
-          crop="fill"
+          fit="fill"
           aria-hidden="true"
           class="mx-3"
           fetchFormat="auto"
@@ -34,12 +31,10 @@
             aria-label="Buy me a coffee"
             target="_blank"
           >
-            <cld-image
-              public-id="mayashavin/default-orange"
-              fetchFormat="auto"
-              quality="auto"
+            <nuxt-img
+              src="mayashavin/default-orange"
               height="42"
-              crop="scale"
+              fit="scale"
               alt="Buy Me A Coffee"
               class="hover:shadow-md"
             />
@@ -48,15 +43,13 @@
       </div>
     </div>
     <div class="flex items-center m-3 justify-center">
-      <cld-image
+      <nuxt-img
         v-for="(framework, key) in frameworks"
         :key="key"
         :alt="framework.label"
-        :public-id="framework.publicId"
+        :src="framework.publicId"
         loading="lazy"
         width="32px"
-        quality="auto"
-        fetchFormat="auto"
         class="m-2"
       />
     </div>
